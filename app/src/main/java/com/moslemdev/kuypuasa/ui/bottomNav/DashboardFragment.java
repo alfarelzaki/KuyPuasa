@@ -1,5 +1,6 @@
 package com.moslemdev.kuypuasa.ui.bottomNav;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,13 +8,10 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
+import com.moslemdev.kuypuasa.ClickCalendar;
 import com.moslemdev.kuypuasa.R;
 
 public class DashboardFragment extends Fragment {
@@ -30,7 +28,9 @@ public class DashboardFragment extends Fragment {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
-                Toast.makeText(getActivity().getApplicationContext(), ""+dayOfMonth, 0).show();
+
+                Intent i = new Intent(getContext(), ClickCalendar.class);
+                startActivity(i);
             }
         });
         return root;

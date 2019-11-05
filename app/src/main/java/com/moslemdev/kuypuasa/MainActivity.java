@@ -2,7 +2,9 @@ package com.moslemdev.kuypuasa;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.animation.Animation;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.moslemdev.kuypuasa.ui.bottomNav.DashboardFragment;
 import com.moslemdev.kuypuasa.ui.bottomNav.HomeFragment;

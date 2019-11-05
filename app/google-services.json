@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1024319046655",
+    "firebase_url": "https://kuy-puasa.firebaseio.com",
+    "project_id": "kuy-puasa",
+    "storage_bucket": "kuy-puasa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024319046655:android:72dbae64ac00c0e54dddca",
+        "android_client_info": {
+          "package_name": "com.moslemdev.kuypuasa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024319046655-5ee3qle79aav300an400viuvfukn8qb6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moslemdev.kuypuasa",
+            "certificate_hash": "807c3cacdec751865705cb6bad04addbc852daa4"
+          }
+        },
+        {
+          "client_id": "1024319046655-4cd4q9gjtvc8m7pqq19h09dfqhjm8a4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVBGiQxSe5FF2BHHG0MpZXYeN8zP-LWi8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024319046655-4cd4q9gjtvc8m7pqq19h09dfqhjm8a4m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

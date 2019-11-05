@@ -14,6 +14,7 @@ public class Animation extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading_spinner);
+        getSupportActionBar().hide();
 
         loading = findViewById(R.id.loading_view);
         loading.setRepeatCount(android.view.animation.Animation.INFINITE);

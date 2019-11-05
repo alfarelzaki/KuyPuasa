@@ -1,4 +1,4 @@
-package com.moslemdev.kuypuasa.ui.dashboard;
+package com.moslemdev.kuypuasa.ui.bottomNav;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,8 +15,6 @@ import androidx.lifecycle.ViewModelProviders;
 import com.moslemdev.kuypuasa.R;
 
 public class DashboardFragment extends Fragment {
-
-    private DashboardViewModel dashboardViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

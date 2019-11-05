@@ -1,4 +1,4 @@
-package com.moslemdev.kuypuasa.ui.home;
+package com.moslemdev.kuypuasa.ui.bottomNav;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,8 +15,6 @@ import androidx.lifecycle.ViewModelProviders;
 import com.moslemdev.kuypuasa.R;
 
 public class HomeFragment extends Fragment {
-
-    private HomeViewModel homeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

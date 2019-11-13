@@ -9,8 +9,8 @@
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/mosque"
         android:scaleType="centerCrop"
+        android:src="@drawable/mosque"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
@@ -27,12 +27,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <CalendarView
-        android:id="@+id/calendar_view"
+    <com.marcohc.robotocalendar.RobotoCalendarView
+        android:id="@+id/roboto_calendar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image_view" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

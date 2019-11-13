@@ -14,11 +14,14 @@ import com.moslemdev.kuypuasa.ui.bottomNav.DashboardFragment;
 public class Animation extends AppCompatActivity {
     LottieAnimationView loading;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.loading_spinner);
         getSupportActionBar().hide();
+
+
 
         loading = findViewById(R.id.loading_view);
         loading.setRepeatCount(android.view.animation.Animation.RELATIVE_TO_PARENT);

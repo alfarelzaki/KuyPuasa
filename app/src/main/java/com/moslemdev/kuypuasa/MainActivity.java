@@ -1,5 +1,6 @@
 package com.moslemdev.kuypuasa;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -10,6 +11,8 @@ import com.moslemdev.kuypuasa.ui.bottomNav.NotificationsFragment;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.nav_view);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+    }
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -40,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case R.id.navigation_notifications:
                             selectedFragment = new NotificationsFragment();
+                            break;
+                        default:
+                            selectedFragment = new DashboardFragment();
                             break;
                     }
 

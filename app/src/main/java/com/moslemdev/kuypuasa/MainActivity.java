@@ -48,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.navigation_notifications:
                             selectedFragment = new NotificationsFragment();
                             break;
-                        default:
-                            selectedFragment = new DashboardFragment();
-                            break;
                     }
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,

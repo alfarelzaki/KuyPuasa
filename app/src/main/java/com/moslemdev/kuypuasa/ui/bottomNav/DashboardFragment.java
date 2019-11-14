@@ -47,12 +47,40 @@ public class DashboardFragment extends Fragment implements RobotoCalendarListene
 
     @Override
     public void onDayClick(Date date) {
-
+        robotoCalendarView.markCircleImage2(date);
     }
 
     @Override
     public void onDayLongClick(Date date) {
+        Calendar calendar = Calendar.getInstance(); // membuat objek berupa calendar
+        calendar.setTime(date);
 
+        SimpleDateFormat month_date = new SimpleDateFormat("MMMM"); // membuat format.
+        String month_name = month_date.format(calendar.getTime()); // return nama bulan sebagai string
+        int gregorianDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+        int gregorianMonth = calendar.get(Calendar.MONTH);
+        int gregorianYear = calendar.get(Calendar.YEAR);
+        String gregorianDate = gregorianDayOfMonth + " " + month_name + " " + gregorianYear;
+
+        GregorianCalendar gCal = new GregorianCalendar(gregorianYear, gregorianMonth+1, gregorianDayOfMonth);
+        String islamicDate = getIslamicDate(gCal);
+
+        Intent detailTanggal = new Intent(getActivity(), ClickCalendar.class);
+        detailTanggal.putExtra("gregorian date", gregorianDate);
+        detailTanggal.putExtra("islamic date", islamicDate);
+        startActivity(detailTanggal);
+    }
+
+    private String getIslamicDate(GregorianCalendar gCal) {
+        UmmalquraCalendar islamicCal = new UmmalquraCalendar();
+        islamicCal.setTime(gCal.getTime()); // mengeset tanggal islam berdasarkan tanggal gregorian
+
+        int uYear = islamicCal.get(Calendar.YEAR);
+        String uMonth = islamicCal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH); // membuat tanggal islam
+        int uDay = islamicCal.get(Calendar.DAY_OF_MONTH);
+        String islamicDate = uDay + " " + uMonth + " " + uYear;
+
+        return islamicDate;
     }
 
     @Override

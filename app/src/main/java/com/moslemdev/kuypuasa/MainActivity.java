@@ -12,8 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -27,11 +25,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListener);
     }
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
-
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
@@ -42,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.navigation_home:
                             selectedFragment = new HomeFragment();
                             break;
-                        case R.id.navigation_dashboard:
+                        case R.id.navigation_calendar:
                             selectedFragment = new DashboardFragment();
                             break;
-                        case R.id.navigation_notifications:
+                        case R.id.navigation_profil:
                             selectedFragment = new NotificationsFragment();
                             break;
                     }

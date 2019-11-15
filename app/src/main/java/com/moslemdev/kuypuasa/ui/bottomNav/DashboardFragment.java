@@ -2,73 +2,123 @@ package com.moslemdev.kuypuasa.ui.bottomNav;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CalendarView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.applandeo.materialcalendarview.CalendarView;
+import com.applandeo.materialcalendarview.EventDay;
+import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
 import com.github.msarhan.ummalqura.calendar.UmmalquraCalendar;
 import com.moslemdev.kuypuasa.ClickCalendar;
 import com.moslemdev.kuypuasa.MainActivity;
 import com.moslemdev.kuypuasa.R;
 
-import com.marcohc.robotocalendar.RobotoCalendarView;
-import com.marcohc.robotocalendar.RobotoCalendarView.RobotoCalendarListener;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
-
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Locale;
 
-public class DashboardFragment extends Fragment implements RobotoCalendarListener{
+public class DashboardFragment extends Fragment{
 
-    private RobotoCalendarView robotoCalendarView;
+    private CalendarView materialCalendar;
+
+    // membuat objek berupa calendar
+    Calendar calendar = Calendar.getInstance();
+
+    // membuat instance kalender untuk menyimpan waktu event (puasa)
+    Calendar puasa = Calendar.getInstance();
+
+    // membuat array untuk menyimpan event
+    List<EventDay> events = new ArrayList<>();
+
+    Date senin = new Date(1546794000);
+    Date kamis = new Date(1546448400);
+    long nextWeek = 604800;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        robotoCalendarView = root.findViewById(R.id.roboto_calendar_view);
+        materialCalendar = root.findViewById(R.id.material_calendar_view);
+
+        materialCalendar.setOnDayClickListener(eventDay -> {
+            calendar.setTime(eventDay.getCalendar().getTime());
+
+            // membuat format untuk mengambil nama bulan
+            SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
+            String month_name = month_date.format(calendar.getTime());
+
+            // membuat date dalam tanggal gregorian
+            int gregorianDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+            int gregorianMonth = calendar.get(Calendar.MONTH);
+            int gregorianYear = calendar.get(Calendar.YEAR);
+            String gregorianDate = gregorianDayOfMonth + " " + month_name + " " + gregorianYear;
+
+            // membuat instance gregorian calendar untuk kemudian diconvert ke islamic
+            GregorianCalendar gCal = new GregorianCalendar(gregorianYear, gregorianMonth+1, gregorianDayOfMonth);
+            String islamicDate = getIslamicDate(gCal);
+
+            // menyimpan date hari klik
+            Date date = new Date(calendar.getTimeInMillis());
+
+            // mengirim data hari ini ke activity pop up
+            Intent detailTanggal = new Intent(getActivity(), ClickCalendar.class);
+            detailTanggal.putExtra("gregorian date", gregorianDate);
+            detailTanggal.putExtra("islamic date", islamicDate);
+            Log.d("date", String.valueOf(calendar.getTimeInMillis()));
+            startActivity(detailTanggal);
+        });
+
+        // mengeset batas awal kalender
+        Calendar min = Calendar.getInstance();
+        min.set(2018, 11, 31);
+        materialCalendar.setMinimumDate(min);
+
+        // mengeset batas akhir kalender
+        Calendar max = Calendar.getInstance();
+        max.set(2020, 11, 31);
+        materialCalendar.setMaximumDate(max);
+
         return root;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        robotoCalendarView.setRobotoCalendarListener(DashboardFragment.this);
+        setPuasaSenin();
+        setPuasaKamis();
+
+        materialCalendar.setEvents(events);
     }
 
-    @Override
-    public void onDayClick(Date date) {
-        robotoCalendarView.markCircleImage2(date);
+    private void setPuasaKamis() {
+        for (int i=0; i<105; i++) {
+            puasa = Calendar.getInstance();
+            puasa.setTimeInMillis((kamis.getTime() + nextWeek*i)*1000);
+            Log.d("Tanggal puasa", puasa.toString());
+            events.add(new EventDay(puasa, R.drawable.ic_minimize_24px));
+        }
     }
 
-    @Override
-    public void onDayLongClick(Date date) {
-        Calendar calendar = Calendar.getInstance(); // membuat objek berupa calendar
-        calendar.setTime(date);
+    private void setPuasaSenin() {
+        for (int i=0; i<105; i++) {
+            puasa = Calendar.getInstance();
+            puasa.setTimeInMillis((senin.getTime() + nextWeek*i)*1000);
+            Log.d("Tanggal puasa", puasa.toString());
+            events.add(new EventDay(puasa, R.drawable.ic_minimize_24px));
+        }
 
-        SimpleDateFormat month_date = new SimpleDateFormat("MMMM"); // membuat format.
-        String month_name = month_date.format(calendar.getTime()); // return nama bulan sebagai string
-        int gregorianDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-        int gregorianMonth = calendar.get(Calendar.MONTH);
-        int gregorianYear = calendar.get(Calendar.YEAR);
-        String gregorianDate = gregorianDayOfMonth + " " + month_name + " " + gregorianYear;
-
-        GregorianCalendar gCal = new GregorianCalendar(gregorianYear, gregorianMonth+1, gregorianDayOfMonth);
-        String islamicDate = getIslamicDate(gCal);
-
-        Intent detailTanggal = new Intent(getActivity(), ClickCalendar.class);
-        detailTanggal.putExtra("gregorian date", gregorianDate);
-        detailTanggal.putExtra("islamic date", islamicDate);
-        startActivity(detailTanggal);
     }
 
     private String getIslamicDate(GregorianCalendar gCal) {
@@ -81,15 +131,5 @@ public class DashboardFragment extends Fragment implements RobotoCalendarListene
         String islamicDate = uDay + " " + uMonth + " " + uYear;
 
         return islamicDate;
-    }
-
-    @Override
-    public void onRightButtonClick() {
-
-    }
-
-    @Override
-    public void onLeftButtonClick() {
-
     }
 }

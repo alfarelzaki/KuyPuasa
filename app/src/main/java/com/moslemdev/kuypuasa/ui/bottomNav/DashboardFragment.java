@@ -43,9 +43,15 @@ public class DashboardFragment extends Fragment{
     // membuat array untuk menyimpan event
     List<EventDay> events = new ArrayList<>();
 
-    Date senin = new Date(1546794000);
-    Date kamis = new Date(1546448400);
-    long nextWeek = 604800;
+    // date as day
+    Date senin = new Date(17903);
+    Date kamis = new Date(17899);
+
+    // dalam satu minggu terdapat 7 hari
+    long oneWeek = 7;
+
+    // detik dalam sehari
+    long oneDay = 86400;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -105,7 +111,7 @@ public class DashboardFragment extends Fragment{
     private void setPuasaKamis() {
         for (int i=0; i<105; i++) {
             puasa = Calendar.getInstance();
-            puasa.setTimeInMillis((kamis.getTime() + nextWeek*i)*1000);
+            puasa.setTimeInMillis((kamis.getTime() + oneWeek*i)*oneDay*1000);
             Log.d("Tanggal puasa", puasa.toString());
             events.add(new EventDay(puasa, R.drawable.ic_minimize_24px));
         }
@@ -114,7 +120,7 @@ public class DashboardFragment extends Fragment{
     private void setPuasaSenin() {
         for (int i=0; i<105; i++) {
             puasa = Calendar.getInstance();
-            puasa.setTimeInMillis((senin.getTime() + nextWeek*i)*1000);
+            puasa.setTimeInMillis((senin.getTime() + oneWeek*i)*oneDay*1000);
             Log.d("Tanggal puasa", puasa.toString());
             events.add(new EventDay(puasa, R.drawable.ic_minimize_24px));
         }

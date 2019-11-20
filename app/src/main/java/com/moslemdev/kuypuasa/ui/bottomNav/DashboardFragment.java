@@ -2,6 +2,7 @@ package com.moslemdev.kuypuasa.ui.bottomNav;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class DashboardFragment extends Fragment{
 
@@ -104,7 +107,6 @@ public class DashboardFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
         setPuasaSenin();
         setPuasaKamis();
-
         materialCalendar.setEvents(events);
     }
 
@@ -113,7 +115,7 @@ public class DashboardFragment extends Fragment{
             puasa = Calendar.getInstance();
             puasa.setTimeInMillis((kamis.getTime() + oneWeek*i)*oneDay*1000);
             Log.d("Tanggal puasa", puasa.toString());
-            events.add(new EventDay(puasa, R.drawable.ic_minimize_24px));
+            events.add(new EventDay(puasa, R.drawable.mark_puasa_senin_kamis));
         }
     }
 
@@ -122,7 +124,7 @@ public class DashboardFragment extends Fragment{
             puasa = Calendar.getInstance();
             puasa.setTimeInMillis((senin.getTime() + oneWeek*i)*oneDay*1000);
             Log.d("Tanggal puasa", puasa.toString());
-            events.add(new EventDay(puasa, R.drawable.ic_minimize_24px));
+            events.add(new EventDay(puasa, R.drawable.mark_puasa_senin_kamis));
         }
 
     }

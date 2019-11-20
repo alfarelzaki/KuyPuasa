@@ -5,4 +5,11 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="headerCalender">#a30000</color>
+
+    <color name="puasaSeninKamis">#8bc34a</color>
+    <color name="puasaAyyamulBidh">#fbc02d</color>
+    <color name="puasaArafah">#673ab7</color>
+    <color name="puasaAsyuraTasua">#e91e63</color>
+    <color name="puasaRamadhan">#03a9f4</color>
+    <color name="haramPuasa">#f44336</color>
 </resources>

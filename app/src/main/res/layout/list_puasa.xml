@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp">
+
+    <ImageView
+        android:id="@+id/tanda_puasa"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_margin="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/text_puasa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toRightOf="@+id/tanda_puasa"
+        android:layout_centerVertical="true">
+
+        <TextView
+            android:id="@+id/nama_puasa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Puasa"
+            android:layout_toRightOf="@+id/tanda_puasa"/>
+
+        <TextView
+            android:id="@+id/deskripsi_puasa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi Puasa"
+            android:textSize="12sp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_experience"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="100xp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

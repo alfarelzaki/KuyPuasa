@@ -14,13 +14,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
 import com.github.msarhan.ummalqura.calendar.UmmalquraCalendar;
 import com.moslemdev.kuypuasa.ClickCalendar;
+import com.moslemdev.kuypuasa.DataPuasa;
+import com.moslemdev.kuypuasa.ListPuasaAdapter;
 import com.moslemdev.kuypuasa.MainActivity;
+import com.moslemdev.kuypuasa.Puasa;
 import com.moslemdev.kuypuasa.R;
 
 import java.text.SimpleDateFormat;
@@ -36,6 +41,10 @@ import static android.content.Context.MODE_PRIVATE;
 public class DashboardFragment extends Fragment{
 
     private CalendarView materialCalendar;
+    private RecyclerView puasaRecyclerView;
+    private ListPuasaAdapter listPuasaAdapter;
+    public ArrayList<Puasa> listPuasa;
+
 
     // membuat objek berupa calendar
     Calendar calendar = Calendar.getInstance();
@@ -60,6 +69,11 @@ public class DashboardFragment extends Fragment{
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
         materialCalendar = root.findViewById(R.id.material_calendar_view);
+
+        // membuat recycler view puasa
+        puasaRecyclerView = root.findViewById(R.id.recycler_puasa);
+        loadDataPuasa();
+        createRecyclerView();
 
         materialCalendar.setOnDayClickListener(eventDay -> {
             calendar.setTime(eventDay.getCalendar().getTime());
@@ -100,6 +114,18 @@ public class DashboardFragment extends Fragment{
         materialCalendar.setMaximumDate(max);
 
         return root;
+    }
+
+    private void createRecyclerView() {
+        listPuasaAdapter = new ListPuasaAdapter(getActivity(), listPuasa);
+        puasaRecyclerView.setLayoutManager(
+                new LinearLayoutManager(getActivity()));
+        puasaRecyclerView.setAdapter(listPuasaAdapter);
+    }
+
+    private void loadDataPuasa() {
+        listPuasa = new ArrayList<>();
+        listPuasa.addAll(DataPuasa.getListData());
     }
 
     @Override

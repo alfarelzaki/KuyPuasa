@@ -39,7 +39,7 @@ public class DataPuasa {
             "20xp",
     };
 
-    static ArrayList<Puasa> getListData() {
+    public static ArrayList<Puasa> getListData() {
         ArrayList<Puasa> listPuasa = new ArrayList<>();
         for (int i = 0; i < puasa.length; i++) {
             Puasa item = new Puasa();

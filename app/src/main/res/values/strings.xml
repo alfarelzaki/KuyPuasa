@@ -11,6 +11,7 @@
     <string name="material_calendar_friday">Jum</string>
     <string name="material_calendar_saturday">Sab</string>
     <string name="material_calendar_sunday">Min</string>
+    <string name="landing_page_description">Aplikasi ini berguna untuk memberi tau jadwal puasa dan membantu kalian untuk tetap semangat dalam menunaikan puasa sunnah.</string>
 
     <array name="material_calendar_months_array">
         <item>Januari</item>

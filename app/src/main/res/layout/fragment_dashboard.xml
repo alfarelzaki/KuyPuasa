@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,6 +14,7 @@
             android:id="@+id/image_view"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_marginTop="16dp"
             android:scaleType="centerCrop"
             android:src="@drawable/mosque"
             app:layout_constraintTop_toTopOf="parent"
@@ -35,11 +37,11 @@
             android:id="@+id/material_calendar_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/image_view"
-            app:headerColor="@color/colorPrimary"
-            app:todayLabelColor="@color/colorPrimary"
+            android:layout_marginTop="16dp"
             android:background="@drawable/background_calendar"
-            />
+            app:headerColor="@color/colorPrimary"
+            app:layout_constraintTop_toBottomOf="@+id/image_view"
+            app:todayLabelColor="@color/colorPrimary" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_puasa"

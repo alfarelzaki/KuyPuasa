@@ -6,10 +6,10 @@
 
     <color name="headerCalender">#a30000</color>
 
-    <color name="puasaSeninKamis">#8bc34a</color>
-    <color name="puasaAyyamulBidh">#fbc02d</color>
-    <color name="puasaArafah">#673ab7</color>
-    <color name="puasaAsyuraTasua">#e91e63</color>
-    <color name="puasaRamadhan">#03a9f4</color>
-    <color name="haramPuasa">#f44336</color>
+    <color name="puasaSeninKamis">#dce775</color>
+    <color name="puasaAyyamulBidh">#f7c11b</color>
+    <color name="puasaArafah">#17d0bc</color>
+    <color name="puasaAsyuraTasua">#ff6262</color>
+    <color name="puasaRamadhan">#44baf1</color>
+    <color name="haramPuasa">#ff8015</color>
 </resources>

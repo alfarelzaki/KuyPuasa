@@ -17,7 +17,6 @@ public class IsiDataDiri extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_isi_data_diri);
-        getSupportActionBar().hide();
 
         fab = findViewById(R.id.floating_action_button_isi_data_diri);
         fab.setOnClickListener(new View.OnClickListener() {

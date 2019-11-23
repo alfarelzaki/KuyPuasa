@@ -16,7 +16,6 @@ public class LandingPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing_page);
-        getSupportActionBar().hide();
 
         fab = findViewById(R.id.floating_action_button_landing_page);
         fab.setOnClickListener(new View.OnClickListener() {

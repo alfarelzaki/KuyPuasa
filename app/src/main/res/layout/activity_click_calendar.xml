@@ -10,12 +10,12 @@
         android:id="@+id/background_tanggal"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/box1_click_calendar"
+        android:background="@android:color/holo_green_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/islamic_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="46dp"
@@ -31,7 +31,7 @@
         android:gravity="center"
         android:textSize="14pt"
         android:text="5 November 2019"
-        app:layout_constraintTop_toBottomOf="@+id/text1" />
+        app:layout_constraintTop_toBottomOf="@+id/islamic_date" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

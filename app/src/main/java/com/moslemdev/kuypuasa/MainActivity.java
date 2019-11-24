@@ -1,10 +1,8 @@
 package com.moslemdev.kuypuasa;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.animation.Animation;
-
-import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.moslemdev.kuypuasa.ui.bottomNav.DashboardFragment;
 import com.moslemdev.kuypuasa.ui.bottomNav.HomeFragment;
@@ -25,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.nav_view);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
@@ -38,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.navigation_home:
                             selectedFragment = new HomeFragment();
                             break;
-                        case R.id.navigation_dashboard:
+                        case R.id.navigation_calendar:
                             selectedFragment = new DashboardFragment();
                             break;
-                        case R.id.navigation_notifications:
+                        case R.id.navigation_profil:
                             selectedFragment = new NotificationsFragment();
                             break;
                     }

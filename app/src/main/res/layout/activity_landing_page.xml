@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LandingPage"
+    android:background="@drawable/landing_page">
+
+    <TextView
+        android:id="@+id/landing_page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Kuy Puasa"
+        android:textColor="@android:color/black"
+        android:textSize="40sp"
+
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="60dp"/>
+
+    <TextView
+        android:id="@+id/landing_page_description"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+
+        android:layout_below="@+id/landing_page_title"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/landing_page_description"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_action_button_landing_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:backgroundTint="@color/haramPuasa"
+            app:backgroundTint="@color/haramPuasa"
+            app:srcCompat="@drawable/ic_arrow_right" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</RelativeLayout>

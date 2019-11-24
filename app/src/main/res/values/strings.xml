@@ -1,6 +1,31 @@
 <resources>
     <string name="app_name">Kuy Puasa</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_calendar">Kalender</string>
+    <string name="title_profil">Profil</string>
+
+    <string name="material_calendar_monday">Sen</string>
+    <string name="material_calendar_tuesday">Sel</string>
+    <string name="material_calendar_wednesday">Rab</string>
+    <string name="material_calendar_thursday">Kam</string>
+    <string name="material_calendar_friday">Jum</string>
+    <string name="material_calendar_saturday">Sab</string>
+    <string name="material_calendar_sunday">Min</string>
+    <string name="landing_page_description">Aplikasi ini berguna untuk memberi tau jadwal puasa dan membantu kalian untuk tetap semangat dalam menunaikan puasa sunnah.</string>
+
+    <array name="material_calendar_months_array">
+        <item>Januari</item>
+        <item>Februari</item>
+        <item>Maret</item>
+        <item>April</item>
+        <item>Mei</item>
+        <item>Juni</item>
+        <item>Juli</item>
+        <item>Agustus</item>
+        <item>September</item>
+        <item>Oktober</item>
+        <item>November</item>
+        <item>Desember</item>
+    </array>
+
 </resources>

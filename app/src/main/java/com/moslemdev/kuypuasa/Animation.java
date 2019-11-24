@@ -22,6 +22,7 @@ public class Animation extends AppCompatActivity {
 
         loading = findViewById(R.id.loading_view);
         loading.setRepeatCount(android.view.animation.Animation.RELATIVE_TO_PARENT);
+        loading.setSpeed((float) 1.5);
         loading.playAnimation();
 
         loading.addAnimatorListener(new Animator.AnimatorListener(){

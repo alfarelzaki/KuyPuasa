@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.moslemdev.kuypuasa.ui.bottomNav.DashboardFragment;
 
 public class IsiDataDiri extends AppCompatActivity {
 
@@ -24,6 +23,7 @@ public class IsiDataDiri extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(IsiDataDiri.this, MainActivity.class);
                 startActivity(i);
+                finish();
             }
         });
 

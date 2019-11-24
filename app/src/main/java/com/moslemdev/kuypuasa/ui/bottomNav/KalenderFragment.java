@@ -38,7 +38,7 @@ import java.util.Locale;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class DashboardFragment extends Fragment{
+public class KalenderFragment extends Fragment{
 
     private CalendarView materialCalendar;
     private RecyclerView puasaRecyclerView;

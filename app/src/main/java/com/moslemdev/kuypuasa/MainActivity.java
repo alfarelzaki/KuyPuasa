@@ -1,12 +1,11 @@
 package com.moslemdev.kuypuasa;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.moslemdev.kuypuasa.ui.bottomNav.DashboardFragment;
+import com.moslemdev.kuypuasa.ui.bottomNav.KalenderFragment;
 import com.moslemdev.kuypuasa.ui.bottomNav.HomeFragment;
-import com.moslemdev.kuypuasa.ui.bottomNav.NotificationsFragment;
+import com.moslemdev.kuypuasa.ui.bottomNav.ProfilFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,8 +17,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        getSupportActionBar().hide();
 
         BottomNavigationView bottomNav = findViewById(R.id.nav_view);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
@@ -36,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new HomeFragment();
                             break;
                         case R.id.navigation_calendar:
-                            selectedFragment = new DashboardFragment();
+                            selectedFragment = new KalenderFragment();
                             break;
                         case R.id.navigation_profil:
-                            selectedFragment = new NotificationsFragment();
+                            selectedFragment = new ProfilFragment();
                             break;
                     }
 

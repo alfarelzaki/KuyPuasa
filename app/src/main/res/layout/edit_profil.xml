@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/greyLight">
+    android:layout_height="wrap_content"
+    tools:context=".IsiDataDiri"
+    android:background="@drawable/edit_profil">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="match_parent">
+
 
         <LinearLayout
+            android:layout_marginTop="50dp"
+            android:id="@+id/foto_profil"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:background="@drawable/gradient_background"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
@@ -22,7 +24,7 @@
                 android:layout_height="130dp"
                 android:src="@drawable/alfarel"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"/>
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -33,28 +35,24 @@
                 android:textColor="@android:color/black"
                 android:textSize="21dp"/>
         </LinearLayout>
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="16dp"
-        android:paddingLeft="60dp"
-        android:paddingRight="60dp"
-        android:layout_gravity="center">
 
         <LinearLayout
+            android:id="@+id/edit_input"
+            android:layout_below="@id/foto_profil"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingLeft="60dp"
+            android:paddingRight="60dp"
+            android:layout_gravity="center">
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:boxStrokeColor="@color/colorAccent">
+                android:layout_marginBottom="16dp"
+                app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_nama"
@@ -63,19 +61,13 @@
                     android:text=""
                     android:hint="Nama"/>
             </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:boxStrokeColor="@color/colorAccent">
+                android:layout_marginBottom="16dp"
+                app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_umur"
@@ -84,19 +76,13 @@
                     android:text=""
                     android:hint="Umur"/>
             </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:boxStrokeColor="@color/colorAccent">
+                android:layout_marginBottom="16dp"
+                app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_gender"
@@ -105,19 +91,13 @@
                     android:text=""
                     android:hint="Gender"/>
             </com.google.android.material.textfield.TextInputLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                app:boxStrokeColor="@color/colorAccent">
+                android:layout_marginBottom="16dp"
+                app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_email"
@@ -127,13 +107,18 @@
                     android:hint="Email"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
-    </LinearLayout>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SIMPAN"
-        android:background="@drawable/button_background"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/white"/>
-</LinearLayout>
+        <Button
+            android:id="@+id/button_simpan"
+            android:layout_below="@id/edit_input"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SIMPAN"
+            android:backgroundTint="@color/puasaAyyamulBidh"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/black"/>
+
+    </RelativeLayout>
+
+</ScrollView>

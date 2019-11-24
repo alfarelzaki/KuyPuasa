@@ -165,11 +165,12 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/button_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="EDIT"
         android:background="@drawable/button_background"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
         android:textColor="@android:color/white"/>
 </LinearLayout>

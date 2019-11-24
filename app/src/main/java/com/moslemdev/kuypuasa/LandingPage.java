@@ -23,6 +23,7 @@ public class LandingPage extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(LandingPage.this, IsiDataDiri.class);
                 startActivity(i);
+                finish();
             }
         });
     }

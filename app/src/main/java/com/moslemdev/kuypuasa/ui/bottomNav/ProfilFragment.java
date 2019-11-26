@@ -30,7 +30,7 @@ public class ProfilFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.activity_profile, container, false);
 
-        tvNama = root.findViewById(R.id.)
+        tvNama = root.findViewById(R.id.);
 
         buttonEdit = root.findViewById(R.id.button_edit);
         buttonEdit.setOnClickListener(new View.OnClickListener() {

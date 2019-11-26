@@ -15,6 +15,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.moslemdev.kuypuasa.EditProfil;
+import com.moslemdev.kuypuasa.IsiDataDiri;
 import com.moslemdev.kuypuasa.R;
 
 public class ProfilFragment extends Fragment {
@@ -30,7 +31,12 @@ public class ProfilFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.activity_profile, container, false);
 
-        tvNama = root.findViewById(R.id.);
+        tvNama = root.findViewById(R.id.profil_nama);
+        tvEmail= root.findViewById(R.id.profil_email);
+        tvGender = root.findViewById(R.id.profil_gender);
+        tvUmur = root.findViewById(R.id.profil_umur);
+
+        setUserInformation();
 
         buttonEdit = root.findViewById(R.id.button_edit);
         buttonEdit.setOnClickListener(new View.OnClickListener() {
@@ -42,5 +48,12 @@ public class ProfilFragment extends Fragment {
         });
 
         return root;
+    }
+
+    private void setUserInformation() {
+        tvNama.setText(IsiDataDiri.user.nama);
+        tvEmail.setText(IsiDataDiri.user.email);
+        tvGender.setText(IsiDataDiri.user.gender);
+        tvUmur.setText(String.valueOf(IsiDataDiri.user.umur));
     }
 }

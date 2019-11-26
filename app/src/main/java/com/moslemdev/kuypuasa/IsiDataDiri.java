@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
@@ -12,7 +13,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class IsiDataDiri extends AppCompatActivity {
 
     private FloatingActionButton fab;
-    public User user = new User();
+    public static User user = new User();
     EditText etNama;
     EditText etEmail;
     EditText etGender;
@@ -32,19 +33,48 @@ public class IsiDataDiri extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createUser();
-
-                Intent i = new Intent(IsiDataDiri.this, MainActivity.class);
-                startActivity(i);
-                finish();
+                // mengecek apakah ada yang kosong atau tidak
+                checkIsFilled();
             }
         });
     }
 
-    private void createUser() {
+    private void checkIsFilled() {
+        boolean filled = true;
+        if (TextUtils.isEmpty(etNama.getText())) {
+            etNama.setError("Isikan nama");
+            filled = false;
+        }
+
+        if (TextUtils.isEmpty(etEmail.getText())) {
+            etEmail.setError("Isikan email");
+            filled = false;
+        }
+
+        if (TextUtils.isEmpty(etGender.getText())) {
+            etGender.setError("Isikan gender");
+            filled = false;
+        }
+
+        if (TextUtils.isEmpty(etUmur.getText())) {
+            etUmur.setError("Isikan umur");
+            filled = false;
+        }
+
+        if (filled) createUser();
+    }
+
+    public void createUser() {
         user.setNama(etNama.getText().toString());
         user.setEmail(etEmail.getText().toString());
         user.setGender(etGender.getText().toString());
         user.setUmur(Integer.parseInt(etUmur.getText().toString()));
+        gotoDashboard();
+    }
+
+    private void gotoDashboard() {
+        Intent i = new Intent(IsiDataDiri.this, MainActivity.class);
+        startActivity(i);
+        finish();
     }
 }

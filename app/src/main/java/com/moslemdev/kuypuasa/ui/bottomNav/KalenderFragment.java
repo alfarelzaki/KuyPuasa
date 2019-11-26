@@ -1,15 +1,11 @@
 package com.moslemdev.kuypuasa.ui.bottomNav;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,12 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
-import com.applandeo.materialcalendarview.listeners.OnDayClickListener;
 import com.github.msarhan.ummalqura.calendar.UmmalquraCalendar;
 import com.moslemdev.kuypuasa.ClickCalendar;
 import com.moslemdev.kuypuasa.DataPuasa;
 import com.moslemdev.kuypuasa.ListPuasaAdapter;
-import com.moslemdev.kuypuasa.MainActivity;
 import com.moslemdev.kuypuasa.Puasa;
 import com.moslemdev.kuypuasa.R;
 
@@ -35,8 +29,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class KalenderFragment extends Fragment{
 
@@ -67,7 +59,7 @@ public class KalenderFragment extends Fragment{
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        View root = inflater.inflate(R.layout.fragment_calendar, container, false);
         materialCalendar = root.findViewById(R.id.material_calendar_view);
 
         // membuat recycler view puasa

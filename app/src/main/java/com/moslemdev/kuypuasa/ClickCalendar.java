@@ -15,7 +15,6 @@ public class ClickCalendar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_click_calendar);
 
-        getSupportActionBar().hide();
         tvGregorianDate = findViewById(R.id.gregorian_date);
         tvIslamicDate = findViewById(R.id.islamic_date);
 

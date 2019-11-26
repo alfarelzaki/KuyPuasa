@@ -70,11 +70,11 @@
                 app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_umur"
+                    android:id="@+id/edit_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:hint="Umur"/>
+                    android:hint="Email"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -100,11 +100,11 @@
                 app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_email"
+                    android:id="@+id/edit_umur"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:hint="Email"/>
+                    android:hint="Umur"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 

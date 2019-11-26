@@ -25,6 +25,7 @@
                 android:layout_marginTop="50dp"/>
 
             <TextView
+                android:id="@+id/profil_nama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -60,6 +61,7 @@
                         android:textSize="18dp"/>
 
                     <TextView
+                        android:id="@+id/profil_umur"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="17th"
@@ -82,6 +84,7 @@
                         android:textSize="18dp"/>
 
                     <TextView
+                        android:id="@+id/profil_gender"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Pria"
@@ -104,6 +107,7 @@
                         android:textSize="18dp"/>
 
                     <TextView
+                        android:id="@+id/profil_pencapaian"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3"
@@ -134,6 +138,7 @@
                 android:src="@drawable/ic_email_black_24dp"/>
 
             <TextView
+                android:id="@+id/profil_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="saifulahmadzaki@gmail.com"
@@ -142,26 +147,26 @@
                 android:paddingLeft="20dp"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:paddingLeft="50dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:paddingLeft="50dp">-->
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_phone_iphone_black_24dp"/>
+<!--            <ImageView-->
+<!--                android:layout_width="40dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:src="@drawable/ic_phone_iphone_black_24dp"/>-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="(+62) 821 431 532 672"
-                android:layout_gravity="center_vertical"
-                android:textStyle="bold"
-                android:paddingLeft="20dp"/>
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="(+62) 821 431 532 672"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:textStyle="bold"-->
+<!--                android:paddingLeft="20dp"/>-->
+<!--        </LinearLayout>-->
     </LinearLayout>
 
     <Button

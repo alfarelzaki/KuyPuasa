@@ -20,11 +20,17 @@ import com.moslemdev.kuypuasa.R;
 public class ProfilFragment extends Fragment {
 
     private Button buttonEdit;
+    TextView tvNama;
+    TextView tvEmail;
+    TextView tvGender;
+    TextView tvUmur;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.activity_profile, container, false);
+
+        tvNama = root.findViewById(R.id.)
 
         buttonEdit = root.findViewById(R.id.button_edit);
         buttonEdit.setOnClickListener(new View.OnClickListener() {

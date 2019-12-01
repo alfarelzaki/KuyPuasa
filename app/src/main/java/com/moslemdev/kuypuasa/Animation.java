@@ -9,10 +9,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.moslemdev.kuypuasa.ui.bottomNav.PuasaCalendar;
 
 public class Animation extends AppCompatActivity {
     LottieAnimationView loading;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,7 +28,8 @@ public class Animation extends AppCompatActivity {
 
             @Override
             public void onAnimationStart(Animator animation) {
-
+                PuasaCalendar.setPuasaKamis();
+                PuasaCalendar.setPuasaSenin();
             }
 
             @Override
@@ -45,8 +46,6 @@ public class Animation extends AppCompatActivity {
                 editor.commit();
                 Intent i = new Intent(Animation.this, LandingPage.class);
                 startActivity(i);
-
-                finish();
             }
 
             @Override

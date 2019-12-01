@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 import com.github.msarhan.ummalqura.calendar.UmmalquraCalendar;
 import com.moslemdev.kuypuasa.ClickCalendar;
@@ -32,7 +31,6 @@ import java.util.Locale;
 
 public class KalenderFragment extends Fragment{
 
-    private CalendarView materialCalendar;
     private RecyclerView puasaRecyclerView;
     private ListPuasaAdapter listPuasaAdapter;
     public ArrayList<Puasa> listPuasa;
@@ -60,14 +58,14 @@ public class KalenderFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_calendar, container, false);
-        materialCalendar = root.findViewById(R.id.material_calendar_view);
+        PuasaCalendar.materialCalendar = root.findViewById(R.id.material_calendar_view);
 
         // membuat recycler view puasa
         puasaRecyclerView = root.findViewById(R.id.recycler_puasa);
         loadDataPuasa();
         createRecyclerView();
 
-        materialCalendar.setOnDayClickListener(eventDay -> {
+        PuasaCalendar.materialCalendar.setOnDayClickListener(eventDay -> {
             calendar.setTime(eventDay.getCalendar().getTime());
 
             // membuat format untuk mengambil nama bulan
@@ -98,12 +96,12 @@ public class KalenderFragment extends Fragment{
         // mengeset batas awal kalender
         Calendar min = Calendar.getInstance();
         min.set(2018, 11, 31);
-        materialCalendar.setMinimumDate(min);
+        PuasaCalendar.materialCalendar.setMinimumDate(min);
 
         // mengeset batas akhir kalender
         Calendar max = Calendar.getInstance();
         max.set(2020, 11, 31);
-        materialCalendar.setMaximumDate(max);
+        PuasaCalendar.materialCalendar.setMaximumDate(max);
 
         return root;
     }
@@ -123,9 +121,7 @@ public class KalenderFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setPuasaSenin();
-        setPuasaKamis();
-        materialCalendar.setEvents(events);
+        PuasaCalendar.materialCalendar.setEvents(PuasaCalendar.events);
     }
 
     private void setPuasaKamis() {

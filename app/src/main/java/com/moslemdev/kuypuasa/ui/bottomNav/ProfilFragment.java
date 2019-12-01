@@ -18,6 +18,8 @@ import com.moslemdev.kuypuasa.EditProfil;
 import com.moslemdev.kuypuasa.IsiDataDiri;
 import com.moslemdev.kuypuasa.R;
 
+import static android.app.Activity.RESULT_OK;
+
 public class ProfilFragment extends Fragment {
 
     private Button buttonEdit;
@@ -43,7 +45,7 @@ public class ProfilFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), EditProfil.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
         });
 
@@ -55,5 +57,11 @@ public class ProfilFragment extends Fragment {
         tvEmail.setText(IsiDataDiri.user.email);
         tvGender.setText(IsiDataDiri.user.gender);
         tvUmur.setText(String.valueOf(IsiDataDiri.user.umur));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setUserInformation();
     }
 }

@@ -39,13 +39,6 @@ public class EditProfil extends AppCompatActivity {
             public void onClick(View view) {
                 if (checkIsFilled()) {
                     changeUserData();
-                    Log.d("data", IsiDataDiri.user.nama);
-                    Log.d("data", IsiDataDiri.user.email);
-                    Log.d("data", IsiDataDiri.user.gender);
-                    Log.d("data", String.valueOf(IsiDataDiri.user.umur));
-
-                    Intent intent = new Intent(EditProfil.this, MainActivity.class);
-                    startActivity(intent);
                     finish();
                 }
             }

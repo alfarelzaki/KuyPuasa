@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNav = findViewById(R.id.nav_view);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+        Fragment selectedFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                selectedFragment).commit();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =

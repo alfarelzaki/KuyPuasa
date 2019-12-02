@@ -22,7 +22,7 @@
             <ImageView
                 android:layout_width="130dp"
                 android:layout_height="130dp"
-                android:src="@drawable/alfarel"
+                android:src="@drawable/farel"
                 android:layout_gravity="center_horizontal"
                 />
 
@@ -33,7 +33,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Ubah Foto Profil"
                 android:textColor="@android:color/black"
-                android:textSize="21dp"/>
+                android:textSize="16dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -59,7 +59,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:hint="Nama"/>
+                    android:hint="Nama"
+                    android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -74,7 +75,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:hint="Email"/>
+                    android:hint="Email"
+                    android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -89,7 +91,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:hint="Gender"/>
+                    android:hint="Gender"
+                    android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -104,7 +107,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:hint="Umur"/>
+                    android:hint="Umur"
+                    android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 

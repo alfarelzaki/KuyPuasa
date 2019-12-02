@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="headerCalender">#a30000</color>
+    <color name="puasaSeninKamis">#dce775</color>
+    <color name="puasaAyyamulBidh">#f7c11b</color>
+    <color name="puasaArafah">#17d0bc</color>
+    <color name="puasaAsyuraTasua">#ff6262</color>
+    <color name="puasaRamadhan">#44baf1</color>
+    <color name="haramPuasa">#ff8015</color>
+
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#292b3d</color>
     <color name="colorAccent">#D81B60</color>
@@ -10,12 +18,5 @@
     <color name="startYellow">#ffd800</color>
     <color name="endYellow">#ffdc34</color>
 
-    <color name="headerCalender">#a30000</color>
-    <color name="puasaSeninKamis">#dce775</color>
-    <color name="puasaAyyamulBidh">#f7c11b</color>
-    <color name="puasaArafah">#17d0bc</color>
-    <color name="puasaAsyuraTasua">#ff6262</color>
-    <color name="puasaRamadhan">#44baf1</color>
-    <color name="haramPuasa">#ff8015</color>
 
 </resources>

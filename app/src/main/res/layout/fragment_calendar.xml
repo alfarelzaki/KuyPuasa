@@ -13,10 +13,9 @@
         <ImageView
             android:id="@+id/image_view"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="300dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/mosque"
+            android:src="@color/puasaAyyamulBidh"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="0dp" />
 
@@ -24,11 +23,10 @@
             android:id="@+id/tv_hijri"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="36dp"
             android:text="Muharram 1441"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textSize="32sp"
-            app:layout_constraintBottom_toBottomOf="@+id/image_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -37,19 +35,33 @@
             android:id="@+id/material_calendar_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="120dp"
             android:background="@drawable/background_calendar"
-            app:headerColor="@color/colorPrimary"
-            app:layout_constraintTop_toBottomOf="@+id/image_view"
-            app:todayLabelColor="@color/colorPrimary" />
+            app:headerColor="@color/colorPrimaryDark"
+            app:headerLabelColor="@android:color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:todayLabelColor="@color/colorAccent"
+            tools:layout_editor_absoluteX="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_puasa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_keterangan" />
+
+        <TextView
+            android:id="@+id/tv_keterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Keterangan"
+            android:textColor="@android:color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/material_calendar_view" />
 

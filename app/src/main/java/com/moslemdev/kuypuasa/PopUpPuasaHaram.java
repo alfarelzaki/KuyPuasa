@@ -7,12 +7,12 @@ import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.WindowManager;
 
-public class PopUpPuasaSunnah extends AppCompatActivity {
+public class PopUpPuasaHaram extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pop_up_puasa_sunnah);
+        setContentView(R.layout.activity_pop_up_puasa_haram);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

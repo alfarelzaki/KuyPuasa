@@ -21,6 +21,8 @@
     <style name="AppTheme.PopUpPuasa">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowElevation">2dp</item>
+        <item name="android:fontFamily">@font/poppins</item>
     </style>
 
 </resources>

@@ -5,22 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/popup_puasa_background"
-    tools:context=".PopUpPuasaSunnah">
+    tools:context=".PopUpPuasaWajib">
 
     <LinearLayout
-        android:id="@+id/background_title_sunnah"
+        android:id="@+id/background_title_wajib"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/puasaArafah"
+        android:background="@color/puasaAyyamulBidh"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/puasa_sunnah_title"
+            android:id="@+id/puasa_wajib_title"
             android:layout_marginTop="120dp"
-            android:layout_below="@id/background_title_sunnah"
+            android:layout_below="@id/background_title_wajib"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Puasa Sunnah"
+            android:text="Puasa Wajib"
             android:textSize="32sp"
             android:textColor="@android:color/black"
             android:padding="16dp"/>
@@ -28,14 +28,12 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/puasa_sunnah_description"
+        android:id="@+id/puasa_wajib_description"
         android:textSize="16sp"
-        android:layout_below="@id/background_title_sunnah"
+        android:layout_below="@id/background_title_wajib"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Puasa yang jika dilakukan mendapat pahala, jika ditinggalkan tidak mendapat dosa"
+        android:text="Puasa yang jika dilakukan mendapat pahala, jika ditinggalkan mendapat dosa"
         android:padding="16dp"/>
-
-
 
 </RelativeLayout>

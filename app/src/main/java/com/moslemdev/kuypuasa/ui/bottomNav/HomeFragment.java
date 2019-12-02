@@ -14,7 +14,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.card.MaterialCardView;
+import com.moslemdev.kuypuasa.PopUpPuasaHaram;
+import com.moslemdev.kuypuasa.PopUpPuasaMakruh;
 import com.moslemdev.kuypuasa.PopUpPuasaSunnah;
+import com.moslemdev.kuypuasa.PopUpPuasaWajib;
 import com.moslemdev.kuypuasa.R;
 
 public class HomeFragment extends Fragment {
@@ -43,21 +46,24 @@ public class HomeFragment extends Fragment {
         cvPuasaWajib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), PopUpPuasaWajib.class);
+                startActivity(intent);
             }
         });
 
         cvPuasaMakruh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), PopUpPuasaMakruh.class);
+                startActivity(intent);
             }
         });
 
         cvPuasaHaram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), PopUpPuasaHaram.class);
+                startActivity(intent);
             }
         });
 

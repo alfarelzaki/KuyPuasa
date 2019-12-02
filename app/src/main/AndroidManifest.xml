@@ -12,8 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PopUpPuasaSunnah"
+            android:name=".PopUpPuasaHaram"
             android:theme="@style/AppTheme.PopUpPuasa"/>
+        <activity
+            android:name=".PopUpPuasaMakruh"
+            android:theme="@style/AppTheme.PopUpPuasa" />
+        <activity
+            android:name=".PopUpPuasaWajib"
+            android:theme="@style/AppTheme.PopUpPuasa" />
+        <activity
+            android:name=".PopUpPuasaSunnah"
+            android:theme="@style/AppTheme.PopUpPuasa" />
         <activity
             android:name=".EditProfil"
             android:theme="@style/FullscreenTheme" />

@@ -18,4 +18,9 @@
         <item name="android:fontFamily">@font/poppins</item>
     </style>
 
+    <style name="AppTheme.PopUpPuasa">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
 </resources>

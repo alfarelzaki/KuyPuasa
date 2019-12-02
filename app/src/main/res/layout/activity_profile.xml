@@ -35,7 +35,8 @@
                 android:textSize="18dp"/>
         </LinearLayout>
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
+            app:cardBackgroundColor="@android:color/white"
             android:layout_width="300dp"
             android:layout_height="80dp"
             android:layout_centerHorizontal="true"
@@ -117,7 +118,7 @@
                         android:paddingTop="5dp"/>
                 </LinearLayout>
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
     </RelativeLayout>
 
     <LinearLayout

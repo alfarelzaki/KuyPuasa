@@ -80,7 +80,7 @@
             android:layout_marginTop="16dp"
             android:layout_below="@id/home_atas">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 app:cardCornerRadius="12dp"
@@ -123,7 +123,7 @@
                     android:layout_gravity="right"
                     android:layout_marginTop="35dp"
                     android:layout_marginRight="16dp"/>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
         <LinearLayout
@@ -135,7 +135,8 @@
             android:layout_marginTop="16dp"
             android:gravity="center">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_view_puasa_wajib"
                 android:layout_width="130dp"
                 android:layout_height="100dp"
                 app:cardBackgroundColor="@color/puasaAyyamulBidh"
@@ -160,9 +161,10 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="50dp"
                     android:textColor="@android:color/black"/>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_view_puasa_sunnah"
                 android:layout_width="130dp"
                 android:layout_height="100dp"
                 app:cardBackgroundColor="@color/puasaArafah"
@@ -188,7 +190,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="50dp"
                     android:textColor="@android:color/black"/>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
         <LinearLayout
@@ -200,7 +202,8 @@
             android:layout_marginTop="16dp"
             android:gravity="center">
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_view_puasa_makruh"
                 android:layout_width="130dp"
                 android:layout_height="100dp"
                 app:cardBackgroundColor="@color/puasaArafah"
@@ -225,9 +228,10 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="50dp"
                     android:textColor="@android:color/black"/>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_view_puasa_haram"
                 android:layout_width="130dp"
                 android:layout_height="100dp"
                 app:cardBackgroundColor="@color/puasaAyyamulBidh"
@@ -253,7 +257,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="50dp"
                     android:textColor="@android:color/black"/>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

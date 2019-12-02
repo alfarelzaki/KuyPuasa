@@ -40,7 +40,8 @@
             android:layout_height="100dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/click_calender_atas"
-            app:cardCornerRadius="15dp">
+            app:cardCornerRadius="12dp"
+            android:layout_marginTop="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"

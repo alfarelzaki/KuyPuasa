@@ -11,7 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditProfil"
+        <activity android:name=".PuasaAsyuraTasuaDeskripsi"></activity>
+        <activity android:name=".PuasaArafahDeskripsi" />
+        <activity android:name=".PuasaAyyamulBidhDeskripsi" />
+        <activity android:name=".PuasaSeninKamisDeskripsi" />
+        <activity
+            android:name=".EditProfil"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".IsiDataDiri"
@@ -20,7 +25,8 @@
             android:name=".LandingPage"
             android:theme="@style/FullscreenTheme" />
         <activity android:name=".ClickCalendar" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".Animation"

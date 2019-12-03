@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.gson.Gson;
 import com.moslemdev.kuypuasa.ui.bottomNav.PuasaCalendar;
 
 public class Animation extends AppCompatActivity {
@@ -35,15 +36,14 @@ public class Animation extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 SharedPreferences sharedPreferences
-                        = getSharedPreferences("ISI DATA DIRI", MODE_PRIVATE);
-                if (!sharedPreferences.contains("Sudah Terisi")) {
-                    SharedPreferences.Editor editor
-                            = sharedPreferences.edit();
-                    editor.putString("Sudah Terisi", "done!");
-                    editor.commit();
+                        = getSharedPreferences("DataUser", MODE_PRIVATE);
+                if (!sharedPreferences.contains("userData")) {
                     Intent i = new Intent(Animation.this, LandingPage.class);
                     startActivity(i);
                 } else {
+                    Gson gson = new Gson();
+                    String json = sharedPreferences.getString("userData", "");
+                    IsiDataDiri.user = gson.fromJson(json, User.class);
                     Intent i = new Intent(Animation.this, MainActivity.class);
                     startActivity(i);
                 }

@@ -3,12 +3,14 @@ package com.moslemdev.kuypuasa;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 
 public class IsiDataDiri extends AppCompatActivity {
 
@@ -69,7 +71,17 @@ public class IsiDataDiri extends AppCompatActivity {
         user.setEmail(etEmail.getText().toString());
         user.setGender(etGender.getText().toString());
         user.setUmur(Integer.parseInt(etUmur.getText().toString()));
+        saveDataUser();
         gotoDashboard();
+    }
+
+    private void saveDataUser() {
+        SharedPreferences sharedPreferences = getSharedPreferences("DataUser", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(user);
+        editor.putString("userData", json);
+        editor.commit();
     }
 
     private void gotoDashboard() {

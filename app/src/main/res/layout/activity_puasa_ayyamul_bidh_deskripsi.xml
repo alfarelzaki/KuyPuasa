@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PuasaAyyamulBidhDeskripsi"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/click_calender_atas"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/home"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ayyamulbidh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:text="Puasa Ayyamul Bidh"
+            android:textSize="12pt"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="130dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/deskripsi1"
+        android:layout_below="@id/click_calender_atas"
+        app:cardCornerRadius="12dp"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Puasa Ayyamul Bidh adalah puasa pada tengah bulan, yaitu pada hari ke 13, 14, dan 15 hijriah tiap bulannya. Disebut Ayyamul Bidh karena pada 3 hari itulah bulan bersinar terang, sehingga malam tampak putih bercahaya." />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="170dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/deskripsi2"
+        android:layout_below="@id/deskripsi1"
+        app:cardCornerRadius="12dp"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Niat Puasa:"
+                    android:textStyle="bold"
+                    android:textSize="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="\nNawaitu sauma ayyami bidh sunnatan lillahi ta’ala \n\nArtinya, &quot; Saya berniat puasa sunnah ayyamul bidh karena Allah ta’ala.&quot;" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -23,6 +23,11 @@
         <activity
             android:name=".PopUpPuasaSunnah"
             android:theme="@style/AppTheme.PopUpPuasa" />
+        <activity android:name=".PuasaAsyuraTasuaDeskripsi"></activity>
+        <activity android:name=".PuasaArafahDeskripsi" />
+        <activity android:name=".PuasaAyyamulBidhDeskripsi" />
+        <activity android:name=".PuasaSeninKamisDeskripsi" />
+
         <activity
             android:name=".EditProfil"
             android:theme="@style/FullscreenTheme" />

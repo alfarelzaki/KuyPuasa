@@ -1,6 +1,8 @@
 package com.moslemdev.kuypuasa;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +45,32 @@ public class ListPuasaAdapter extends RecyclerView.Adapter<ListPuasaAdapter.View
                 .load(data.getTanda())
                 .apply(new RequestOptions().override(35, 35))
                 .into(holder.viewTanda);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                switch(data.getPuasa()) {
+                    case "Puasa Senin Kamis":
+                        intent = new Intent(holder.itemView.getContext(), PuasaSeninKamisDeskripsi.class);
+                        break;
+                    case "Puasa Ayyamul Bidh":
+                        intent = new Intent(holder.itemView.getContext(), PuasaAyyamulBidhDeskripsi.class);
+                        break;
+                    case "Puasa Arafah":
+                        intent = new Intent(holder.itemView.getContext(), PuasaArafahDeskripsi.class);
+                        break;
+                    case "Puasa Asyura Tasu'a":
+                        intent = new Intent(holder.itemView.getContext(), PuasaAsyuraTasuaDeskripsi.class);
+                        break;
+                    default:
+                        intent = new Intent(holder.itemView.getContext(), PuasaSeninKamisDeskripsi.class);
+                        break;
+                }
+                holder.itemView.getContext().startActivity(intent);
+                Log.d("list", data.getPuasa());
+            }
+        });
     }
 
     @Override

@@ -20,7 +20,7 @@ public class Animation extends AppCompatActivity {
         setContentView(R.layout.loading_spinner);
 
         loading = findViewById(R.id.loading_view);
-        loading.setRepeatCount(android.view.animation.Animation.RELATIVE_TO_PARENT);
+        loading.setRepeatCount(android.view.animation.Animation.RELATIVE_TO_SELF);
         loading.setSpeed((float) 1.5);
         loading.playAnimation();
 
@@ -37,15 +37,16 @@ public class Animation extends AppCompatActivity {
                 SharedPreferences sharedPreferences
                         = getSharedPreferences("ISI DATA DIRI", MODE_PRIVATE);
                 if (!sharedPreferences.contains("Sudah Terisi")) {
-
+                    SharedPreferences.Editor editor
+                            = sharedPreferences.edit();
+                    editor.putString("Sudah Terisi", "done!");
+                    editor.commit();
+                    Intent i = new Intent(Animation.this, LandingPage.class);
+                    startActivity(i);
+                } else {
+                    Intent i = new Intent(Animation.this, MainActivity.class);
+                    startActivity(i);
                 }
-
-                SharedPreferences.Editor editor
-                        = sharedPreferences.edit();
-                editor.putString("Sudah Terisi", "done!");
-                editor.commit();
-                Intent i = new Intent(Animation.this, LandingPage.class);
-                startActivity(i);
             }
 
             @Override

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".PuasaAyyamulBidhDeskripsi"
     android:orientation="vertical"
-    >
+    android:background="@color/greyLight">
 
     <LinearLayout
         android:id="@+id/click_calender_atas"

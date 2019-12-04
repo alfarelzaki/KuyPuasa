@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -32,6 +34,8 @@ public class HomeFragment extends Fragment {
     private MaterialCardView cvPuasaWajib;
     private MaterialCardView cvPuasaMakruh;
     private MaterialCardView cvPuasaHaram;
+    TextView namaUserHome;
+    MaterialCardView verifikasiPuasa;
     CircleImageView photoProfileHome;
     Bitmap bitmap;
 
@@ -43,11 +47,23 @@ public class HomeFragment extends Fragment {
         cvPuasaMakruh = root.findViewById(R.id.card_view_puasa_makruh);
         cvPuasaHaram = root.findViewById(R.id.card_view_puasa_haram);
         photoProfileHome = root.findViewById(R.id.home_photo_profile);
+        verifikasiPuasa = root.findViewById(R.id.verifikasi_puasa);
+        namaUserHome = root.findViewById(R.id.nama_user_home);
+
+        namaUserHome.setText(IsiDataDiri.user.nama);
 
         if (IsiDataDiri.user.photo != null) {
             loadImageFromStorage(IsiDataDiri.user.photo);
             Glide.with(this).load(bitmap).into(photoProfileHome);
         }
+
+        verifikasiPuasa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Anda mendapatkan 30xp!", Toast.LENGTH_SHORT).show();
+                verifikasiPuasa.setVisibility(View.GONE);
+            }
+        });
 
         cvPuasaSunnah.setOnClickListener(new View.OnClickListener() {
             @Override

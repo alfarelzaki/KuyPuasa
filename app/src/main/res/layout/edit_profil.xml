@@ -53,14 +53,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:endIconMode="clear_text">
+                app:endIconMode="clear_text"
+                android:hint="Nama">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_nama"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=""
-                    android:hint="Nama"
                     android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,14 +68,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:endIconMode="clear_text">
+                app:endIconMode="clear_text"
+                android:hint="Email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=""
-                    android:hint="Email"
                     android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,14 +83,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:endIconMode="clear_text">
+                app:endIconMode="clear_text"
+                android:hint="Gender">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=""
-                    android:hint="Gender"
                     android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -101,15 +98,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:endIconMode="clear_text">
+                app:endIconMode="clear_text"
+                android:hint="Umur">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/edit_umur"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=""
-                    android:hint="Umur"
-                    android:maxLines="1"/>
+                    android:maxLines="1"
+                    android:inputType="number"/>
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 

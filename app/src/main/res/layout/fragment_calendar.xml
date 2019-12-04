@@ -41,7 +41,7 @@
             app:headerColor="@color/colorPrimary"
             app:headerLabelColor="@android:color/white"
             app:layout_constraintTop_toTopOf="parent"
-            app:todayLabelColor="@color/colorAccent"
+            app:todayLabelColor="@color/colorPrimary"
             tools:layout_editor_absoluteX="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"/>

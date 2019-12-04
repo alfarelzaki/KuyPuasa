@@ -22,12 +22,12 @@ public class DataPuasa {
     };
 
     private static String[] deskripsi = {
-            "Puasa Senin Kamis",
-            "Puasa Ayyamul Bidh",
-            "Puasa Arafah",
-            "Puasa Asyura Tasu'a",
-            "Puasa Ramadhan",
-            "Haram Berpuasa",
+            "Puasa Sunnah",
+            "Puasa Sunnah",
+            "Puasa Sunnah",
+            "Puasa Sunnah",
+            "Puasa Wajib",
+            "Waktu Haram Berpuasa",
     };
 
     private static String[] experience = {

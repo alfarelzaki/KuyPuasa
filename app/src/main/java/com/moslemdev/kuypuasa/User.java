@@ -1,10 +1,21 @@
 package com.moslemdev.kuypuasa;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+import android.widget.ImageView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class User {
     public String nama;
     public String email;
     public String gender;
     public int umur;
+    public String photo;
 
     public String getNama() {
         return nama;

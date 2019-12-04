@@ -17,7 +17,8 @@
             android:background="@color/puasaAyyamulBidh"
             android:orientation="vertical">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/photo_profil"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:src="@drawable/farel"

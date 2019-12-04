@@ -19,7 +19,8 @@
             android:padding="20dp"
             android:background="@drawable/home">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/home_photo_profile"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="right"

@@ -1,6 +1,7 @@
 package com.moslemdev.kuypuasa.ui.bottomNav;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,10 +14,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 import com.github.msarhan.ummalqura.calendar.UmmalquraCalendar;
+import com.google.gson.Gson;
+import com.moslemdev.kuypuasa.Animation;
 import com.moslemdev.kuypuasa.ClickCalendar;
 import com.moslemdev.kuypuasa.DataPuasa;
+import com.moslemdev.kuypuasa.DatabaseHelper;
+import com.moslemdev.kuypuasa.LandingPage;
 import com.moslemdev.kuypuasa.ListPuasaAdapter;
 import com.moslemdev.kuypuasa.Puasa;
 import com.moslemdev.kuypuasa.R;
@@ -28,13 +34,14 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class KalenderFragment extends Fragment{
-
+    public static CalendarView materialCalendar;
     private RecyclerView puasaRecyclerView;
     private ListPuasaAdapter listPuasaAdapter;
     public ArrayList<Puasa> listPuasa;
-
+    DatabaseHelper db;
 
     // membuat objek berupa calendar
     Calendar calendar = Calendar.getInstance();
@@ -58,14 +65,16 @@ public class KalenderFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_calendar, container, false);
-        PuasaCalendar.materialCalendar = root.findViewById(R.id.material_calendar_view);
+        materialCalendar = root.findViewById(R.id.material_calendar_view);
+
+        db = new DatabaseHelper(getActivity());
 
         // membuat recycler view puasa
         puasaRecyclerView = root.findViewById(R.id.recycler_puasa);
         loadDataPuasa();
         createRecyclerView();
 
-        PuasaCalendar.materialCalendar.setOnDayClickListener(eventDay -> {
+        materialCalendar.setOnDayClickListener(eventDay -> {
             calendar.setTime(eventDay.getCalendar().getTime());
 
             // membuat format untuk mengambil nama bulan
@@ -79,7 +88,7 @@ public class KalenderFragment extends Fragment{
             String gregorianDate = gregorianDayOfMonth + " " + month_name + " " + gregorianYear;
 
             // membuat instance gregorian calendar untuk kemudian diconvert ke islamic
-            GregorianCalendar gCal = new GregorianCalendar(gregorianYear, gregorianMonth+1, gregorianDayOfMonth);
+            GregorianCalendar gCal = new GregorianCalendar(gregorianYear, gregorianMonth, gregorianDayOfMonth);
             String islamicDate = getIslamicDate(gCal);
 
             // menyimpan date hari klik
@@ -89,6 +98,7 @@ public class KalenderFragment extends Fragment{
             Intent detailTanggal = new Intent(getActivity(), ClickCalendar.class);
             detailTanggal.putExtra("gregorian date", gregorianDate);
             detailTanggal.putExtra("islamic date", islamicDate);
+            detailTanggal.putExtra("time in milis", Long.valueOf(calendar.getTimeInMillis()));
             Log.d("date", String.valueOf(calendar.getTimeInMillis()));
             startActivity(detailTanggal);
         });
@@ -96,14 +106,44 @@ public class KalenderFragment extends Fragment{
         // mengeset batas awal kalender
         Calendar min = Calendar.getInstance();
         min.set(2018, 11, 31);
-        PuasaCalendar.materialCalendar.setMinimumDate(min);
+        materialCalendar.setMinimumDate(min);
 
         // mengeset batas akhir kalender
         Calendar max = Calendar.getInstance();
         max.set(2020, 11, 31);
-        PuasaCalendar.materialCalendar.setMaximumDate(max);
+        materialCalendar.setMaximumDate(max);
+
+        // jika inisialisasi pertama, maka buat database terlebih dahulu
+        if (!initializeCalendarData()) {
+            haramPuasaSaveToDatabase();
+            puasaRamadhanSavetoDatabase();
+            puasaArafahSaveToDatabase();
+            puasaAsyuraSaveToDatabase();
+            puasaAyyamulBidhSaveToDatabase();
+            puasaSeninSaveToDatabase();
+            puasaKamisSaveToDatabase();
+
+            // save state (intinya calendar data sudah pernah di inisialisasi
+            SharedPreferences sharedPreferences =
+                    getActivity().getSharedPreferences("DataUser", getActivity().MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("userCalendar", "initialized");
+            editor.commit();
+        }
+
+        setPuasaColor();
+        materialCalendar.setEvents(events);
 
         return root;
+    }
+
+    private boolean initializeCalendarData() {
+        SharedPreferences sharedPreferences =
+                getActivity().getSharedPreferences("DataUser", getActivity().MODE_PRIVATE);
+        if (!sharedPreferences.contains("userCalendar")) {
+            return false;
+        }
+        return true;
     }
 
     private void createRecyclerView() {
@@ -118,31 +158,6 @@ public class KalenderFragment extends Fragment{
         listPuasa.addAll(DataPuasa.getListData());
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        PuasaCalendar.materialCalendar.setEvents(PuasaCalendar.events);
-    }
-
-    private void setPuasaKamis() {
-        for (int i=0; i<105; i++) {
-            puasa = Calendar.getInstance();
-            puasa.setTimeInMillis((kamis.getTime() + oneWeek*i)*oneDay*1000);
-            Log.d("Tanggal puasa", puasa.toString());
-            events.add(new EventDay(puasa, R.drawable.mark_puasa_senin_kamis));
-        }
-    }
-
-    private void setPuasaSenin() {
-        for (int i=0; i<105; i++) {
-            puasa = Calendar.getInstance();
-            puasa.setTimeInMillis((senin.getTime() + oneWeek*i)*oneDay*1000);
-            Log.d("Tanggal puasa", puasa.toString());
-            events.add(new EventDay(puasa, R.drawable.mark_puasa_senin_kamis));
-        }
-
-    }
-
     private String getIslamicDate(GregorianCalendar gCal) {
         UmmalquraCalendar islamicCal = new UmmalquraCalendar();
         islamicCal.setTime(gCal.getTime()); // mengeset tanggal islam berdasarkan tanggal gregorian
@@ -153,5 +168,96 @@ public class KalenderFragment extends Fragment{
         String islamicDate = uDay + " " + uMonth + " " + uYear;
 
         return islamicDate;
+    }
+
+    private void setPuasaColor() {
+        ArrayList<Map<String, String>> arrayList;
+        arrayList = db.getAllPuasa();
+        for (int i=0; i<arrayList.size(); i++) {
+            puasa = Calendar.getInstance();
+            puasa.setTimeInMillis(Long.parseLong(arrayList.get(i).get("time"))*oneDay*1000);
+            switch (arrayList.get(i).get("name")) {
+                case "Haram Berpuasa":
+                    events.add(new EventDay(puasa, R.drawable.mark_haram_berpuasa));
+                    break;
+                case "Puasa Ramadhan":
+                    events.add(new EventDay(puasa, R.drawable.mark_puasa_ramadhan));
+                    break;
+                case "Puasa Arafah":
+                    events.add(new EventDay(puasa, R.drawable.mark_puasa_arafah));
+                    break;
+                case "Puasa Asyura Tasu'a":
+                    events.add(new EventDay(puasa, R.drawable.mark_puasa_asyura_tasua));
+                    break;
+                case "Puasa Ayyamul Bidh":
+                    events.add(new EventDay(puasa, R.drawable.mark_puasa_ayyamul_bidh));
+                    break;
+                case "Puasa Senin Kamis":
+                    events.add(new EventDay(puasa, R.drawable.mark_puasa_senin_kamis));
+                    break;
+            }
+        }
+    }
+
+    private void puasaAsyuraSaveToDatabase() {
+        long time = (Long.valueOf(18503));
+        db.addPuasa("Puasa Asyura Tasu'a", time);
+    }
+
+    private void puasaArafahSaveToDatabase() {
+        long time = (Long.valueOf(18473));
+        db.addPuasa("Puasa Arafah", time);
+    }
+
+    private void puasaRamadhanSavetoDatabase() {
+        for (int i=0; i<30; i++) {
+            long time = (Long.valueOf(18376)+i);
+            db.addPuasa("Puasa Ramadhan", time);
+        }
+    }
+
+    private void haramPuasaSaveToDatabase() {
+        for (int i=0; i<3; i++) {
+            long time = (Long.valueOf(18475)+i);
+            db.addPuasa("Haram Berpuasa", time);
+        }
+    }
+
+    private void puasaKamisSaveToDatabase() {
+        for (int i=0; i<105; i++) {
+            long time = (kamis.getTime() + oneWeek*i);
+            db.addPuasa("Puasa Senin Kamis", time);
+        }
+    }
+
+    private void puasaSeninSaveToDatabase() {
+        for (int i=0; i<105; i++) {
+            long time = (senin.getTime() + oneWeek*i);
+            db.addPuasa("Puasa Senin Kamis", time);
+        }
+    }
+
+    private void puasaAyyamulBidhSaveToDatabase() {
+        ArrayList<Long> listPuasaAyyamulBidh = new ArrayList<>();
+        listPuasaAyyamulBidh.add(Long.valueOf(18270));
+        listPuasaAyyamulBidh.add(Long.valueOf(18299));
+        listPuasaAyyamulBidh.add(Long.valueOf(18329));
+        listPuasaAyyamulBidh.add(Long.valueOf(18359));
+        listPuasaAyyamulBidh.add(Long.valueOf(18418));
+        listPuasaAyyamulBidh.add(Long.valueOf(18448));
+        listPuasaAyyamulBidh.add(Long.valueOf(18478));
+        listPuasaAyyamulBidh.add(Long.valueOf(18506));
+        listPuasaAyyamulBidh.add(Long.valueOf(18536));
+        listPuasaAyyamulBidh.add(Long.valueOf(18565));
+        listPuasaAyyamulBidh.add(Long.valueOf(18595));
+        listPuasaAyyamulBidh.add(Long.valueOf(18624));
+
+        for (int i=0; i<listPuasaAyyamulBidh.size(); i++) {
+            // puasa ayyamul bidh biasanya berlangsung 3 hari
+            for (int j=0; j<3; j++) {
+                long time = (listPuasaAyyamulBidh.get(i)+j);
+                db.addPuasa("Puasa Ayyamul Bidh", time);
+            }
+        }
     }
 }

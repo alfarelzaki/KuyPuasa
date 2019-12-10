@@ -22,12 +22,12 @@ public class DataPuasa {
     };
 
     private static String[] deskripsi = {
-            "Puasa Sunnah",
-            "Puasa Sunnah",
-            "Puasa Sunnah",
-            "Puasa Sunnah",
-            "Puasa Wajib",
-            "Waktu Haram Berpuasa",
+            "Puasa yang dilaksanakan setiap hari Senin dan Kamis",
+            "Puasa pada hari ke 13, 14, dan 15 bulan Hijriyah",
+            "Puasa yang dilaksanakan pada tanggal 9 Dzulhijjah",
+            "Puasa pada 10 Muharram dan satu hari sebelum atau sesudahnya",
+            "Puasa wajib umat islam pada bulan Ramadhan",
+            "Waktu Haram Berpuasa (Idul Fitri, Idul Adha dan Hari Tasyrik",
     };
 
     private static String[] experience = {

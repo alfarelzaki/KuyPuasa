@@ -38,52 +38,22 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="350dp"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/click_calender_atas"
             app:cardCornerRadius="12dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
             android:layout_marginTop="16dp">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_puasa_click"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:weightSum="2">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
-
-
-                    <ImageView
-                        android:layout_width="45dp"
-                        android:layout_height="45dp"
-                        android:background="@drawable/radius"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Puasa Senin Kamis"
-                        android:textStyle="bold"
-                        android:textSize="16dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Puasa yang dilaksanakan setiap hari Senin dan Kamis" />
-                </LinearLayout>
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_keterangan" />
         </androidx.cardview.widget.CardView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

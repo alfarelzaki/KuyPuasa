@@ -103,4 +103,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return arrayList;
     }
+
+    public int getExperiencePuasaInSpesificDay(String time) {
+        String name = "";
+        int totalExperience = 0;
+        String selectQuery = "SELECT * FROM " + PUASA_TABLE + " WHERE " + PUASA_TIME + " = " + time;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do{
+                name = cursor.getString(cursor.getColumnIndex(PUASA_NAME));
+                switch (name) {
+                    case "Haram Berpuasa":
+                        totalExperience += 20;
+                        break;
+                    case "Puasa Ramadhan":
+                        totalExperience += 300;
+                        break;
+                    case "Puasa Arafah":
+                        totalExperience += 100;
+                        break;
+                    case "Puasa Asyura Tasu'a":
+                        totalExperience += 100;
+                        break;
+                    case "Puasa Ayyamul Bidh":
+                        totalExperience += 50;
+                        break;
+                    case "Puasa Senin Kamis":
+                        totalExperience += 30;
+                        break;
+                    default:
+                        totalExperience = 0;
+                        break;
+                }
+            } while (cursor.moveToNext());
+        }
+
+        return totalExperience;
+    }
 }

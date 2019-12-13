@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.gson.Gson;
+import com.moslemdev.kuypuasa.DatabaseHelper;
 import com.moslemdev.kuypuasa.IsiDataDiri;
 import com.moslemdev.kuypuasa.PopUpPuasaHaram;
 import com.moslemdev.kuypuasa.PopUpPuasaMakruh;
@@ -33,6 +34,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -40,11 +43,13 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class HomeFragment extends Fragment {
 
+    DatabaseHelper db;
     private MaterialCardView cvPuasaSunnah;
     private MaterialCardView cvPuasaWajib;
     private MaterialCardView cvPuasaMakruh;
     private MaterialCardView cvPuasaHaram;
     private Calendar today = Calendar.getInstance();
+    private GregorianCalendar gCal;
     private int sToday = today.get(Calendar.DAY_OF_MONTH);
     public static int state;
     TextView namaUserHome;
@@ -63,6 +68,11 @@ public class HomeFragment extends Fragment {
         verifikasiPuasa = root.findViewById(R.id.verifikasi_puasa);
         namaUserHome = root.findViewById(R.id.nama_user_home);
 
+        db = new DatabaseHelper(getActivity());
+        gCal = new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH));
+        Log.d("level", String.valueOf(gCal.getTimeInMillis()/(1000*86400)+1));
+        int todayExperience = db.getExperiencePuasaInSpesificDay(String.valueOf(gCal.getTimeInMillis()/(1000*86400)+1));
+
         namaUserHome.setText(IsiDataDiri.user.nama);
         if (sToday != state) {
             verifikasiPuasa.setVisibility(View.VISIBLE);
@@ -76,8 +86,8 @@ public class HomeFragment extends Fragment {
         verifikasiPuasa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Anda mendapatkan 30xp!", Toast.LENGTH_SHORT).show();
-                IsiDataDiri.user.setExperience(IsiDataDiri.user.getExperience()+30);
+                Toast.makeText(getActivity(), "Anda mendapatkann " + todayExperience + "xp!", Toast.LENGTH_SHORT).show();
+                IsiDataDiri.user.setExperience(IsiDataDiri.user.getExperience()+todayExperience);
                 checkLevelUp();
                 state = sToday;
                 saveDataUser();

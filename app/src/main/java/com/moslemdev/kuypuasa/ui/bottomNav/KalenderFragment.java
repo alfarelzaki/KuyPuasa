@@ -91,6 +91,7 @@ public class KalenderFragment extends Fragment{
             GregorianCalendar gCal = new GregorianCalendar(gregorianYear, gregorianMonth, gregorianDayOfMonth);
             String islamicDate = getIslamicDate(gCal);
 
+
             // menyimpan date hari klik
             Date date = new Date(calendar.getTimeInMillis());
 

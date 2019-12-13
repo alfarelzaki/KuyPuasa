@@ -40,7 +40,7 @@ public class ListPuasaAdapter extends RecyclerView.Adapter<ListPuasaAdapter.View
         final Puasa data = values.get(position);
         holder.viewPuasa.setText(data.puasa);
         holder.viewDeskripsi.setText(data.deskripsi);
-        holder.viewExperience.setText(data.experience);
+        holder.viewExperience.setText(data.experience + " xp");
         Glide.with(holder.itemView.getContext())
                 .load(data.getTanda())
                 .apply(new RequestOptions().override(35, 35))

@@ -16,6 +16,33 @@ public class User {
     public String gender;
     public int umur;
     public String photo;
+    public int experience = 0;
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public int level = 1;
 
     public String getNama() {
         return nama;

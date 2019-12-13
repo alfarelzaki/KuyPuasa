@@ -27,11 +27,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfilFragment extends Fragment {
 
     private Button buttonEdit;
-    TextView tvNama;
-    TextView tvEmail;
-    TextView tvGender;
-    TextView tvUmur;
-    CircleImageView photoProfile;
+    private TextView tvNama;
+    private TextView tvEmail;
+    private TextView tvGender;
+    private TextView tvUmur;
+    private TextView tvLevel;
+    private CircleImageView photoProfile;
     Bitmap bitmap;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -43,6 +44,7 @@ public class ProfilFragment extends Fragment {
         tvEmail= root.findViewById(R.id.profil_email);
         tvGender = root.findViewById(R.id.profil_gender);
         tvUmur = root.findViewById(R.id.profil_umur);
+        tvLevel = root.findViewById(R.id.profil_level);
         photoProfile = root.findViewById(R.id.photo_profil);
 
         setUserInformation();
@@ -60,13 +62,15 @@ public class ProfilFragment extends Fragment {
     }
 
     private void setUserInformation() {
-        tvNama.setText(IsiDataDiri.user.nama);
-        tvEmail.setText(IsiDataDiri.user.email);
-        tvGender.setText(IsiDataDiri.user.gender);
-        tvUmur.setText(String.valueOf(IsiDataDiri.user.umur));
+        tvNama.setText(IsiDataDiri.user.getNama());
+        tvEmail.setText(IsiDataDiri.user.getEmail());
+        tvGender.setText(IsiDataDiri.user.getGender());
+        tvUmur.setText(String.valueOf(IsiDataDiri.user.getUmur()));
+        tvLevel.setText("Level " + IsiDataDiri.user.getLevel() + " (" + IsiDataDiri.user.getExperience()
+                + "/" + IsiDataDiri.user.getLevel()*40 + ")");
 
         if (IsiDataDiri.user.photo != null) {
-            loadImageFromStorage(IsiDataDiri.user.photo);
+            loadImageFromStorage(IsiDataDiri.user.getPhoto());
             Glide.with(this).load(bitmap).into(photoProfile);
         }
     }

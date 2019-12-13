@@ -134,10 +134,10 @@ public class EditProfil extends AppCompatActivity {
     }
 
     private void showUserData() {
-        etNama.setText(IsiDataDiri.user.nama);
-        etEmail.setText(IsiDataDiri.user.email);
-        etGender.setText(IsiDataDiri.user.gender);
-        etUmur.setText(String.valueOf(IsiDataDiri.user.umur));
+        etNama.setText(IsiDataDiri.user.getNama());
+        etEmail.setText(IsiDataDiri.user.getEmail());
+        etGender.setText(IsiDataDiri.user.getGender());
+        etUmur.setText(String.valueOf(IsiDataDiri.user.getUmur()));
     }
 
     private boolean checkIsFilled() {

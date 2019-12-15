@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PuasaHaramDeskripsi"
+    android:orientation="vertical"
+    android:background="@color/greyLight">
+
+    <LinearLayout
+        android:id="@+id/click_calender_atas"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/haram"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/haram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:gravity="center"
+            android:text="Puasa Haram"
+            android:textSize="12pt"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/deskripsi1"
+        android:layout_below="@id/click_calender_atas"
+        app:cardCornerRadius="12dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Puasa haram merupakan puasa yang tidak boleh dikerjakan dan apabila dikerjakan maka akan mendapatkan dosa. Melakukan puasa diharamkan pada hari-hari berikut: \n 1. Hari Idul Fitri-Idul Adha \n 2. Hari-Hari Tasyriq (11, 12, 13 Dzulhijjah) \n 3. Puasa Hari Jum’at saja \n 4. Puasa Pada Hari Syak (Meragukan) \n 5. Puasa Dahr (Puasa Setiap Hari) " />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

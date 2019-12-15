@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.moslemdev.kuypuasa">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -15,9 +15,11 @@
         android:roundIcon="@mipmap/ic_logo_kuypuasa"
         android:supportsRtl="true"
         android:theme="@style/FullscreenTheme">
+        <activity android:name=".PuasaHaramDeskripsi"></activity>
+        <activity android:name=".PuasaRamadhanDeskripsi" />
         <activity
             android:name=".PopUpPuasaHaram"
-            android:theme="@style/AppTheme.PopUpPuasa"/>
+            android:theme="@style/AppTheme.PopUpPuasa" />
         <activity
             android:name=".PopUpPuasaMakruh"
             android:theme="@style/AppTheme.PopUpPuasa" />
@@ -27,11 +29,10 @@
         <activity
             android:name=".PopUpPuasaSunnah"
             android:theme="@style/AppTheme.PopUpPuasa" />
-        <activity android:name=".PuasaAsyuraTasuaDeskripsi"/>
+        <activity android:name=".PuasaAsyuraTasuaDeskripsi" />
         <activity android:name=".PuasaArafahDeskripsi" />
         <activity android:name=".PuasaAyyamulBidhDeskripsi" />
         <activity android:name=".PuasaSeninKamisDeskripsi" />
-
         <activity
             android:name=".EditProfil"
             android:theme="@style/FullscreenTheme" />

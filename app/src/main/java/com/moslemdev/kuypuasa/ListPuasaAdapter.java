@@ -63,8 +63,14 @@ public class ListPuasaAdapter extends RecyclerView.Adapter<ListPuasaAdapter.View
                     case "Puasa Asyura Tasu'a":
                         intent = new Intent(holder.itemView.getContext(), PuasaAsyuraTasuaDeskripsi.class);
                         break;
-                    default:
+                    case "Puasa Ramadhan":
+                        intent = new Intent(holder.itemView.getContext(), PuasaRamadhanDeskripsi.class);
+                        break;
+                    case "Puasa Senin-Kamis":
                         intent = new Intent(holder.itemView.getContext(), PuasaSeninKamisDeskripsi.class);
+                        break;
+                    default:
+                        intent = new Intent(holder.itemView.getContext(), PuasaHaramDeskripsi.class);
                         break;
                 }
                 holder.itemView.getContext().startActivity(intent);

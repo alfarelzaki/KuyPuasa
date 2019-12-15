@@ -33,9 +33,9 @@ public class DataPuasa {
     private static int[] experience = {
             30,
             50,
+            80,
+            80,
             100,
-            100,
-            300,
             20,
     };
 

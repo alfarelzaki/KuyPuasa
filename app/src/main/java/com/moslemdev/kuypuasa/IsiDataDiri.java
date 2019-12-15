@@ -9,6 +9,8 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -41,6 +43,17 @@ public class IsiDataDiri extends AppCompatActivity {
                 checkIsFilled();
             }
         });
+
+        String[] GENDER = new String[] {"Laki laki", "Perempuan"};
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(
+                        this,
+                        R.layout.gender_drop_down_list, R.id.gender_drop_down_list_text,
+                        GENDER);
+
+        AutoCompleteTextView editTextFilledExposedDropdown = findViewById(R.id.input_gender);
+        editTextFilledExposedDropdown.setAdapter(adapter);
     }
 
     private void checkIsFilled() {

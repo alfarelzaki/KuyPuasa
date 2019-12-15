@@ -17,6 +17,15 @@ public class User {
     public int umur;
     public String photo;
     public int experience = 0;
+    public int capaian = 0;
+
+    public int getCapaian() {
+        return capaian;
+    }
+
+    public void setCapaian(int capaian) {
+        this.capaian = capaian;
+    }
 
     public String getPhoto() {
         return photo;

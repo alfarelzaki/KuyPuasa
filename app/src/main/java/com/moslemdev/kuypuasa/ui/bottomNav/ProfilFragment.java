@@ -32,6 +32,7 @@ public class ProfilFragment extends Fragment {
     private TextView tvGender;
     private TextView tvUmur;
     private TextView tvLevel;
+    private TextView tvCapaian;
     private CircleImageView photoProfile;
     Bitmap bitmap;
 
@@ -45,6 +46,7 @@ public class ProfilFragment extends Fragment {
         tvGender = root.findViewById(R.id.profil_gender);
         tvUmur = root.findViewById(R.id.profil_umur);
         tvLevel = root.findViewById(R.id.profil_level);
+        tvCapaian = root.findViewById(R.id.profil_pencapaian);
         photoProfile = root.findViewById(R.id.photo_profil);
 
         setUserInformation();
@@ -68,6 +70,7 @@ public class ProfilFragment extends Fragment {
         tvUmur.setText(String.valueOf(IsiDataDiri.user.getUmur()));
         tvLevel.setText("Level " + IsiDataDiri.user.getLevel() + " (" + IsiDataDiri.user.getExperience()
                 + "/" + IsiDataDiri.user.getLevel()*40 + ")");
+        tvCapaian.setText(String.valueOf(IsiDataDiri.user.getCapaian()));
 
         if (IsiDataDiri.user.photo != null) {
             loadImageFromStorage(IsiDataDiri.user.getPhoto());

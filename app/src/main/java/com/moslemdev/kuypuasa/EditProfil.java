@@ -18,6 +18,8 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,12 +35,14 @@ import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static java.security.AccessController.getContext;
+
 public class EditProfil extends AppCompatActivity {
 
     private Button buttonSimpan;
     EditText etNama;
     EditText etEmail;
-    EditText etGender;
+    AutoCompleteTextView etGender;
     EditText etUmur;
     CircleImageView editPhotoProfile;
     TextView changePhotoProfile;
@@ -60,6 +64,17 @@ public class EditProfil extends AppCompatActivity {
         buttonSimpan = findViewById(R.id.button_simpan);
         editPhotoProfile = findViewById(R.id.edit_photo_profile);
         changePhotoProfile = findViewById(R.id.button_change_photo);
+
+        String[] GENDER = new String[] {"Laki laki", "Perempuan"};
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(
+                        this,
+                        R.layout.gender_drop_down_list, R.id.gender_drop_down_list_text,
+                        GENDER);
+
+        AutoCompleteTextView editTextFilledExposedDropdown = findViewById(R.id.edit_gender);
+        editTextFilledExposedDropdown.setAdapter(adapter);
 
         // menampilkan data user sebelum diedit
         showUserData();

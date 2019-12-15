@@ -20,7 +20,9 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
+import com.moslemdev.kuypuasa.DataPuasa;
 import com.moslemdev.kuypuasa.DatabaseHelper;
 import com.moslemdev.kuypuasa.IsiDataDiri;
 import com.moslemdev.kuypuasa.PopUpPuasaHaram;
@@ -33,9 +35,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -53,9 +57,11 @@ public class HomeFragment extends Fragment {
     private int sToday = today.get(Calendar.DAY_OF_MONTH);
     public static int state;
     TextView namaUserHome;
+    TextView puasaHariIniHome;
     MaterialCardView verifikasiPuasa;
     CircleImageView photoProfileHome;
     Bitmap bitmap;
+    ArrayList<Map<String, String>> arrayList;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -67,6 +73,7 @@ public class HomeFragment extends Fragment {
         photoProfileHome = root.findViewById(R.id.home_photo_profile);
         verifikasiPuasa = root.findViewById(R.id.verifikasi_puasa);
         namaUserHome = root.findViewById(R.id.nama_user_home);
+        puasaHariIniHome = root.findViewById(R.id.puasa_hari_ini_home);
 
         db = new DatabaseHelper(getActivity());
         gCal = new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH));
@@ -76,7 +83,7 @@ public class HomeFragment extends Fragment {
         namaUserHome.setText(IsiDataDiri.user.nama);
         if (sToday != state) {
             verifikasiPuasa.setVisibility(View.VISIBLE);
-        }
+        } else verifikasiPuasa.setVisibility(View.GONE);
 
         if (IsiDataDiri.user.photo != null) {
             loadImageFromStorage(IsiDataDiri.user.photo);
@@ -86,12 +93,28 @@ public class HomeFragment extends Fragment {
         verifikasiPuasa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Anda mendapatkann " + todayExperience + "xp!", Toast.LENGTH_SHORT).show();
-                IsiDataDiri.user.setExperience(IsiDataDiri.user.getExperience()+todayExperience);
-                checkLevelUp();
-                state = sToday;
-                saveDataUser();
-                verifikasiPuasa.setVisibility(View.GONE);
+                if (todayExperience == 0) {
+                    Toast.makeText(getActivity(), "Hari ini tidak ada puasa", Toast.LENGTH_SHORT).show();
+                } else {
+                    new MaterialAlertDialogBuilder(getActivity())
+                            .setTitle("Klaim XP")
+                            .setMessage("Apakah anda sudah berpuasa hari ini?")
+                            .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Toast.makeText(getActivity(), "Anda mendapatkann " + todayExperience + "xp!", Toast.LENGTH_SHORT).show();
+                                    IsiDataDiri.user.setExperience(IsiDataDiri.user.getExperience()+todayExperience);
+                                    IsiDataDiri.user.setCapaian(IsiDataDiri.user.getCapaian()+1);
+                                    checkLevelUp();
+                                    state = sToday;
+                                    saveDataUser();
+                                    verifikasiPuasa.setVisibility(View.GONE);
+                                }
+                            })
+                            .setNegativeButton("Tidak", null)
+                            .show();
+                }
             }
         });
 
@@ -126,6 +149,8 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        loadDataPuasaInSpesificDay();
 
         return root;
     }
@@ -166,5 +191,16 @@ public class HomeFragment extends Fragment {
         editor.putString("userData", json);
         editor.putInt("stateVerifikasi", state);
         editor.commit();
+    }
+
+    private void loadDataPuasaInSpesificDay() {
+        arrayList = db.getPuasaInSpesificDay(String.valueOf(gCal.getTimeInMillis()/(1000*86400)+1));
+        puasaHariIniHome.setText("");
+        for (int i=0; i<arrayList.size(); i++) {
+            if (i==arrayList.size()-1) puasaHariIniHome.setText("-> " + arrayList.get(i).get("name"));
+            else puasaHariIniHome.setText("-> " + arrayList.get(i).get("name") + "\n");
+        }
+
+        if (puasaHariIniHome.getText() == "") puasaHariIniHome.setText("Tidak ada puasa hari ini");
     }
 }

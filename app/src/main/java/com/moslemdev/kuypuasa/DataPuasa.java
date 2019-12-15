@@ -30,13 +30,13 @@ public class DataPuasa {
             "Waktu Haram Berpuasa (Idul Fitri, Idul Adha dan Hari Tasyrik",
     };
 
-    private static String[] experience = {
-            "30xp",
-            "50xp",
-            "100xp",
-            "100xp",
-            "300xp",
-            "20xp",
+    private static int[] experience = {
+            30,
+            50,
+            100,
+            100,
+            300,
+            20,
     };
 
     public static ArrayList<Puasa> getListData() {

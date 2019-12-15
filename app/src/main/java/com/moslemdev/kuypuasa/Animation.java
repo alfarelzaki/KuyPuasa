@@ -4,12 +4,14 @@ import android.animation.Animator;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.gson.Gson;
+import com.moslemdev.kuypuasa.ui.bottomNav.HomeFragment;
 
 public class Animation extends AppCompatActivity {
     LottieAnimationView loading;
@@ -42,6 +44,7 @@ public class Animation extends AppCompatActivity {
                     Gson gson = new Gson();
                     String json = sharedPreferences.getString("userData", "");
                     IsiDataDiri.user = gson.fromJson(json, User.class);
+                    HomeFragment.state = sharedPreferences.getInt("stateVerifikasi", 0);
                     Intent i = new Intent(Animation.this, MainActivity.class);
                     startActivity(i);
                 }

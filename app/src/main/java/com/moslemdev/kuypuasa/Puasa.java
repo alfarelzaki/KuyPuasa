@@ -3,7 +3,7 @@ package com.moslemdev.kuypuasa;
 public class Puasa {
     public String puasa;
     public String deskripsi;
-    public String experience;
+    public int experience;
     public int tanda;
 
     public String getPuasa() {
@@ -22,11 +22,11 @@ public class Puasa {
         this.deskripsi = deskripsi;
     }
 
-    public String getExperience() {
+    public int getExperience() {
         return experience;
     }
 
-    public void setExperience(String experience) {
+    public void setExperience(int experience) {
         this.experience = experience;
     }
 

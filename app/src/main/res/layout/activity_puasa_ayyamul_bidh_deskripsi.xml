@@ -23,7 +23,7 @@
             android:gravity="center"
             android:text="Puasa Ayyamul Bidh"
             android:textSize="12pt"
-            android:textStyle="bold"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="parent"
             />
 
@@ -55,6 +55,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     android:text="Puasa Ayyamul Bidh adalah puasa pada tengah bulan, yaitu pada hari ke 13, 14, dan 15 hijriah tiap bulannya. Disebut Ayyamul Bidh karena pada 3 hari itulah bulan bersinar terang, sehingga malam tampak putih bercahaya." />
             </LinearLayout>
         </LinearLayout>
@@ -88,11 +89,13 @@
                     android:layout_height="wrap_content"
                     android:text="Niat Puasa:"
                     android:textStyle="bold"
+                    android:textColor="@android:color/black"
                     android:textSize="16dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     android:text="\nNawaitu sauma ayyami bidh sunnatan lillahi ta’ala \n\nArtinya, &quot; Saya berniat puasa sunnah ayyamul bidh karena Allah ta’ala.&quot;" />
 
             </LinearLayout>

@@ -22,8 +22,8 @@
             android:layout_marginTop="70dp"
             android:gravity="center"
             android:text="Puasa Haram"
+            android:textColor="@android:color/black"
             android:textSize="12pt"
-            android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             />
 
@@ -55,6 +55,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     android:text="Puasa haram merupakan puasa yang tidak boleh dikerjakan dan apabila dikerjakan maka akan mendapatkan dosa. Melakukan puasa diharamkan pada hari-hari berikut: \n 1. Hari Idul Fitri-Idul Adha \n 2. Hari-Hari Tasyriq (11, 12, 13 Dzulhijjah) \n 3. Puasa Hari Jum’at saja \n 4. Puasa Pada Hari Syak (Meragukan) \n 5. Puasa Dahr (Puasa Setiap Hari) " />
 
             </LinearLayout>

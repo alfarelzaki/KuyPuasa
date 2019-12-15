@@ -22,8 +22,8 @@
             android:layout_marginTop="70dp"
             android:gravity="center"
             android:text="Puasa Arafah"
+            android:textColor="@android:color/black"
             android:textSize="12pt"
-            android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             />
 
@@ -48,6 +48,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
                 android:text="Puasa Arafah dilaksanakan pada hari Arafah  yakni pada tanggal 9 Dzulhijah." />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -80,12 +81,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Niat Puasa:"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:textSize="16dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     android:text="\nNawaitu shouma ‘arofata sunnatan lillaahi ta’aalaa \n\nArtinya, &quot; Saya niat puasa sunnah Arafah karena Allah Ta'ala.&quot;" />
             </LinearLayout>
         </LinearLayout>

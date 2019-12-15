@@ -22,8 +22,8 @@
             android:layout_marginTop="70dp"
             android:gravity="center"
             android:text="Puasa Ramadhan"
+            android:textColor="@android:color/black"
             android:textSize="12pt"
-            android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             />
 
@@ -55,6 +55,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     android:text="Puasa yang dilaksanakan pada bulan Ramadan yang jumlah harinya antara 29 dan 30 hari dalam puasa." />
 
             </LinearLayout>
@@ -91,11 +92,13 @@
                     android:layout_height="wrap_content"
                     android:text="Niat Puasa:"
                     android:textStyle="bold"
+                    android:textColor="@android:color/black"
                     android:textSize="16dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     android:text="\nNawaitu shauma Ghodin An adaai fardhi syahri romadhoona haadzihis sanati lillahi ta’ala \n\nArtinya, &quot; Saya niat berpuasa esok hari untuk menunaikan fardhu di bulan Ramadhan tahun ini, karena Allah Ta’ala.&quot;" />
 
             </LinearLayout>

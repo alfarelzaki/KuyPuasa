@@ -23,7 +23,7 @@
             android:gravity="center"
             android:text="Puasa Asyura Tasua"
             android:textSize="12pt"
-            android:textStyle="bold"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="parent"
             />
 
@@ -55,8 +55,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pada bulan Muharram, umat Islam disunnahkan untuk berpuasa ketika hari-hari tertentu. Salah satunya adalah puasa Asyura pada setiap tanggal 10 bulan Muharram.\n\nHari Asyura atau tanggal 10 Muharram. Sehari sebelumnya, umat Islam juga dianjurkan menjalankan puasa Tasu`a.
-" />
+                    android:textColor="@android:color/black"
+                    android:text="Pada bulan Muharram, umat Islam disunnahkan untuk berpuasa ketika hari-hari tertentu. Salah satunya adalah puasa Asyura pada setiap tanggal 10 bulan Muharram.\n\nHari Asyura atau tanggal 10 Muharram. Sehari sebelumnya, umat Islam juga dianjurkan menjalankan puasa Tasu`a."/>
 
             </LinearLayout>
 
@@ -91,12 +91,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Niat Puasa:"
+                    android:textColor="@android:color/black"
                     android:textStyle="bold"
                     android:textSize="16dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
                     android:text="\nNawaitus Shouma Fi Yaumi Asyura Sunnatan Lillahi Ta’ala \n\nArtinya, &quot; Saya niat puasa Asyura sunat karena Allalh Ta’ala.&quot;" />
 
             </LinearLayout>

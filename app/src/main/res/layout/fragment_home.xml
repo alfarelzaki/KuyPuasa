@@ -144,32 +144,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/jenis_puasa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_below="@id/puasa_hari_ini"
-            android:layout_marginTop="16dp"
-            android:background="@color/puasaAsyuraTasua"
-            android:gravity="center_horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jenis - jenis puasa"
-                android:textColor="@android:color/black"
-                android:textStyle="bold"
-                android:textSize="16dp"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/wajib_sunnah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/jenis_puasa"
+            android:layout_below="@+id/puasa_hari_ini"
             android:layout_marginTop="16dp"
             android:gravity="center">
 

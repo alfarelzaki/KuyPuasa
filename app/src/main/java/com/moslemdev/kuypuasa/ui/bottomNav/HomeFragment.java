@@ -58,6 +58,7 @@ public class HomeFragment extends Fragment {
     public static int state;
     TextView namaUserHome;
     TextView puasaHariIniHome;
+    TextView tanggalHome;
     MaterialCardView verifikasiPuasa;
     CircleImageView photoProfileHome;
     Bitmap bitmap;
@@ -74,11 +75,19 @@ public class HomeFragment extends Fragment {
         verifikasiPuasa = root.findViewById(R.id.verifikasi_puasa);
         namaUserHome = root.findViewById(R.id.nama_user_home);
         puasaHariIniHome = root.findViewById(R.id.puasa_hari_ini_home);
+        tanggalHome = root.findViewById(R.id.date_home);
 
         db = new DatabaseHelper(getActivity());
         gCal = new GregorianCalendar(today.get(Calendar.YEAR), today.get(Calendar.MONTH), today.get(Calendar.DAY_OF_MONTH));
         Log.d("level", String.valueOf(gCal.getTimeInMillis()/(1000*86400)+1));
         int todayExperience = db.getExperiencePuasaInSpesificDay(String.valueOf(gCal.getTimeInMillis()/(1000*86400)+1));
+
+        // set tanggal home
+        String[] days = new String[] { "Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu" };
+        String[] months = new String[] { "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" };
+        String day = days[today.get(Calendar.DAY_OF_WEEK)-1];
+        String month = months[today.get(Calendar.MONTH)];
+        tanggalHome.setText(day + ", " +  today.get(Calendar.DAY_OF_MONTH) + " " + month + " " + today.get(Calendar.YEAR));
 
         namaUserHome.setText(IsiDataDiri.user.nama);
         if (sToday != state) {

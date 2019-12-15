@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
+import com.applandeo.materialcalendarview.listeners.OnCalendarPageChangeListener;
 import com.github.msarhan.ummalqura.calendar.UmmalquraCalendar;
 import com.google.gson.Gson;
 import com.moslemdev.kuypuasa.Animation;
@@ -42,6 +44,7 @@ public class KalenderFragment extends Fragment{
     private ListPuasaAdapter listPuasaAdapter;
     public ArrayList<Puasa> listPuasa;
     DatabaseHelper db;
+    TextView tvHijri;
 
     // membuat objek berupa calendar
     Calendar calendar = Calendar.getInstance();
@@ -66,6 +69,7 @@ public class KalenderFragment extends Fragment{
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_calendar, container, false);
         materialCalendar = root.findViewById(R.id.material_calendar_view);
+        tvHijri = root.findViewById(R.id.tv_hijri);
 
         db = new DatabaseHelper(getActivity());
 
@@ -73,6 +77,26 @@ public class KalenderFragment extends Fragment{
         puasaRecyclerView = root.findViewById(R.id.recycler_puasa);
         loadDataPuasa();
         createRecyclerView();
+
+        // set arrow forward and backward
+        materialCalendar.setForwardButtonImage(getResources().getDrawable(R.drawable.ic_keyboard_arrow_right_24px));
+        materialCalendar.setPreviousButtonImage(getResources().getDrawable(R.drawable.ic_keyboard_arrow_left_24px));
+
+        getIslamicDatePerMonth();
+
+        materialCalendar.setOnForwardPageChangeListener(new OnCalendarPageChangeListener() {
+            @Override
+            public void onChange() {
+                getIslamicDatePerMonth();
+            }
+        });
+
+        materialCalendar.setOnPreviousPageChangeListener(new OnCalendarPageChangeListener() {
+            @Override
+            public void onChange() {
+                getIslamicDatePerMonth();
+            }
+        });
 
         materialCalendar.setOnDayClickListener(eventDay -> {
             calendar.setTime(eventDay.getCalendar().getTime());
@@ -138,6 +162,12 @@ public class KalenderFragment extends Fragment{
         return root;
     }
 
+    private void getIslamicDatePerMonth() {
+        GregorianCalendar gCalPerMonth = (GregorianCalendar) materialCalendar.getCurrentPageDate();
+        String islamicDateMonth = getIslamicDateMonth(gCalPerMonth);
+        tvHijri.setText(islamicDateMonth);
+    }
+
     private boolean initializeCalendarData() {
         SharedPreferences sharedPreferences =
                 getActivity().getSharedPreferences("DataUser", getActivity().MODE_PRIVATE);
@@ -169,6 +199,15 @@ public class KalenderFragment extends Fragment{
         String islamicDate = uDay + " " + uMonth + " " + uYear;
 
         return islamicDate;
+    }
+
+    private String getIslamicDateMonth(GregorianCalendar gCal) {
+        UmmalquraCalendar islamicCal = new UmmalquraCalendar();
+        islamicCal.setTime(gCal.getTime()); // mengeset tanggal islam berdasarkan tanggal gregorian
+
+        String uMonth = islamicCal.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.ENGLISH); // membuat tanggal islam
+
+        return uMonth;
     }
 
     private void setPuasaColor() {

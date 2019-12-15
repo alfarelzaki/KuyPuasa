@@ -43,6 +43,7 @@
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
             android:backgroundTint="@color/puasaAsyuraTasua"
+            app:backgroundTint="@color/puasaAsyuraTasua"
             app:srcCompat="@drawable/ic_arrow_right" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

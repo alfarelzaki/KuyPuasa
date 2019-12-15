@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nama Puasa"
-            android:textStyle="bold"
+            android:textColor="@android:color/black"
             android:layout_toRightOf="@+id/tanda_puasa"/>
 
         <TextView
@@ -41,6 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="100xp"
+        android:textStyle="bold"
         android:layout_centerVertical="true"
         android:layout_marginRight="16dp"
         android:layout_alignParentRight="true"/>

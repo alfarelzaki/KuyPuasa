@@ -33,6 +33,7 @@
         android:layout_below="@id/background_title_haram"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:text="Waktu dimana puasa tidak boleh dilakukan"
         android:padding="16dp"/>
 

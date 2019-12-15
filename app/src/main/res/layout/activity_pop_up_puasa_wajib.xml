@@ -33,6 +33,7 @@
         android:layout_below="@id/background_title_wajib"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:text="Puasa yang jika dilakukan mendapat pahala, jika ditinggalkan mendapat dosa"
         android:padding="16dp"/>
 

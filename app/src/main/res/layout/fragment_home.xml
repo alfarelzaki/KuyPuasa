@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="KuyPuasa"
-            android:textSize="30dp"
+            android:textSize="26dp"
             android:padding="20dp"
             android:textStyle="bold"
             android:layout_marginTop="70dp"
@@ -68,10 +68,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Jum'at, 29 November 2019"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:padding="20dp"
             android:textStyle="bold"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="110dp"
             android:textColor="@android:color/black"/>
 
         <LinearLayout
@@ -144,11 +144,32 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/jenis_puasa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/puasa_hari_ini"
+            android:layout_marginTop="16dp"
+            android:background="@color/puasaAsyuraTasua"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jenis - jenis puasa"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textSize="16dp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/wajib_sunnah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_below="@+id/puasa_hari_ini"
+            android:layout_below="@+id/jenis_puasa"
             android:layout_marginTop="16dp"
             android:gravity="center">
 

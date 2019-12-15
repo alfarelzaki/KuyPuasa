@@ -66,8 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
-            android:backgroundTint="@color/haramPuasa"
-            app:backgroundTint="@color/haramPuasa"
+            android:backgroundTint="@color/puasaAsyuraTasua"
             app:srcCompat="@drawable/ic_alarm_black_24dp" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </RelativeLayout>

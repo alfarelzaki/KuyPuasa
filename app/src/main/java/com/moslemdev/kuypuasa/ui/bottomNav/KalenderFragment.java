@@ -138,24 +138,6 @@ public class KalenderFragment extends Fragment{
         max.set(2020, 11, 31);
         materialCalendar.setMaximumDate(max);
 
-        // jika inisialisasi pertama, maka buat database terlebih dahulu
-        if (!initializeCalendarData()) {
-            haramPuasaSaveToDatabase();
-            puasaRamadhanSavetoDatabase();
-            puasaArafahSaveToDatabase();
-            puasaAsyuraSaveToDatabase();
-            puasaAyyamulBidhSaveToDatabase();
-            puasaSeninSaveToDatabase();
-            puasaKamisSaveToDatabase();
-
-            // save state (intinya calendar data sudah pernah di inisialisasi
-            SharedPreferences sharedPreferences =
-                    getActivity().getSharedPreferences("DataUser", getActivity().MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("userCalendar", "initialized");
-            editor.commit();
-        }
-
         setPuasaColor();
         materialCalendar.setEvents(events);
 
@@ -166,15 +148,6 @@ public class KalenderFragment extends Fragment{
         GregorianCalendar gCalPerMonth = (GregorianCalendar) materialCalendar.getCurrentPageDate();
         String islamicDateMonth = getIslamicDateMonth(gCalPerMonth);
         tvHijri.setText(islamicDateMonth);
-    }
-
-    private boolean initializeCalendarData() {
-        SharedPreferences sharedPreferences =
-                getActivity().getSharedPreferences("DataUser", getActivity().MODE_PRIVATE);
-        if (!sharedPreferences.contains("userCalendar")) {
-            return false;
-        }
-        return true;
     }
 
     private void createRecyclerView() {
@@ -235,68 +208,6 @@ public class KalenderFragment extends Fragment{
                 case "Puasa Senin Kamis":
                     events.add(new EventDay(puasa, R.drawable.mark_puasa_senin_kamis));
                     break;
-            }
-        }
-    }
-
-    private void puasaAsyuraSaveToDatabase() {
-        long time = (Long.valueOf(18503));
-        db.addPuasa("Puasa Asyura Tasu'a", time);
-    }
-
-    private void puasaArafahSaveToDatabase() {
-        long time = (Long.valueOf(18473));
-        db.addPuasa("Puasa Arafah", time);
-    }
-
-    private void puasaRamadhanSavetoDatabase() {
-        for (int i=0; i<30; i++) {
-            long time = (Long.valueOf(18376)+i);
-            db.addPuasa("Puasa Ramadhan", time);
-        }
-    }
-
-    private void haramPuasaSaveToDatabase() {
-        for (int i=0; i<3; i++) {
-            long time = (Long.valueOf(18475)+i);
-            db.addPuasa("Haram Berpuasa", time);
-        }
-    }
-
-    private void puasaKamisSaveToDatabase() {
-        for (int i=0; i<105; i++) {
-            long time = (kamis.getTime() + oneWeek*i);
-            db.addPuasa("Puasa Senin Kamis", time);
-        }
-    }
-
-    private void puasaSeninSaveToDatabase() {
-        for (int i=0; i<105; i++) {
-            long time = (senin.getTime() + oneWeek*i);
-            db.addPuasa("Puasa Senin Kamis", time);
-        }
-    }
-
-    private void puasaAyyamulBidhSaveToDatabase() {
-        ArrayList<Long> listPuasaAyyamulBidh = new ArrayList<>();
-        listPuasaAyyamulBidh.add(Long.valueOf(18270));
-        listPuasaAyyamulBidh.add(Long.valueOf(18299));
-        listPuasaAyyamulBidh.add(Long.valueOf(18329));
-        listPuasaAyyamulBidh.add(Long.valueOf(18359));
-        listPuasaAyyamulBidh.add(Long.valueOf(18418));
-        listPuasaAyyamulBidh.add(Long.valueOf(18448));
-        listPuasaAyyamulBidh.add(Long.valueOf(18478));
-        listPuasaAyyamulBidh.add(Long.valueOf(18506));
-        listPuasaAyyamulBidh.add(Long.valueOf(18536));
-        listPuasaAyyamulBidh.add(Long.valueOf(18565));
-        listPuasaAyyamulBidh.add(Long.valueOf(18595));
-        listPuasaAyyamulBidh.add(Long.valueOf(18624));
-
-        for (int i=0; i<listPuasaAyyamulBidh.size(); i++) {
-            // puasa ayyamul bidh biasanya berlangsung 3 hari
-            for (int j=0; j<3; j++) {
-                long time = (listPuasaAyyamulBidh.get(i)+j);
-                db.addPuasa("Puasa Ayyamul Bidh", time);
             }
         }
     }

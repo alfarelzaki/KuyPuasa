@@ -47,6 +47,16 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class HomeFragment extends Fragment {
 
+    // date as day
+    Date senin = new Date(17903);
+    Date kamis = new Date(17899);
+
+    // dalam satu minggu terdapat 7 hari
+    long oneWeek = 7;
+
+    // detik dalam sehari
+    long oneDay = 86400;
+
     DatabaseHelper db;
     private MaterialCardView cvPuasaSunnah;
     private MaterialCardView cvPuasaWajib;
@@ -106,13 +116,13 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(getActivity(), "Hari ini tidak ada puasa", Toast.LENGTH_SHORT).show();
                 } else {
                     new MaterialAlertDialogBuilder(getActivity())
-                            .setTitle("Klaim XP")
+                            .setTitle("Klaim Exp")
                             .setMessage("Apakah anda sudah berpuasa hari ini?")
                             .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
 
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
-                                    Toast.makeText(getActivity(), "Anda mendapatkann " + todayExperience + "xp!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getActivity(), "Anda mendapatkann " + todayExperience + "exp!", Toast.LENGTH_SHORT).show();
                                     IsiDataDiri.user.setExperience(IsiDataDiri.user.getExperience()+todayExperience);
                                     IsiDataDiri.user.setCapaian(IsiDataDiri.user.getCapaian()+1);
                                     checkLevelUp();
@@ -158,6 +168,24 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        // jika inisialisasi pertama, maka buat database terlebih dahulu
+        if (!initializeCalendarData()) {
+            haramPuasaSaveToDatabase();
+            puasaRamadhanSavetoDatabase();
+            puasaArafahSaveToDatabase();
+            puasaAsyuraSaveToDatabase();
+            puasaAyyamulBidhSaveToDatabase();
+            puasaSeninSaveToDatabase();
+            puasaKamisSaveToDatabase();
+
+            // save state (intinya calendar data sudah pernah di inisialisasi
+            SharedPreferences sharedPreferences =
+                    getActivity().getSharedPreferences("DataUser", getActivity().MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("userCalendar", "initialized");
+            editor.commit();
+        }
 
         loadDataPuasaInSpesificDay();
 
@@ -211,5 +239,76 @@ public class HomeFragment extends Fragment {
         }
 
         if (puasaHariIniHome.getText() == "") puasaHariIniHome.setText("Tidak ada puasa hari ini");
+    }
+
+    private void puasaAsyuraSaveToDatabase() {
+        long time = (Long.valueOf(18503));
+        db.addPuasa("Puasa Asyura Tasu'a", time);
+    }
+
+    private void puasaArafahSaveToDatabase() {
+        long time = (Long.valueOf(18473));
+        db.addPuasa("Puasa Arafah", time);
+    }
+
+    private void puasaRamadhanSavetoDatabase() {
+        for (int i=0; i<30; i++) {
+            long time = (Long.valueOf(18376)+i);
+            db.addPuasa("Puasa Ramadhan", time);
+        }
+    }
+
+    private void haramPuasaSaveToDatabase() {
+        for (int i=0; i<3; i++) {
+            long time = (Long.valueOf(18475)+i);
+            db.addPuasa("Haram Berpuasa", time);
+        }
+    }
+
+    private void puasaKamisSaveToDatabase() {
+        for (int i=0; i<105; i++) {
+            long time = (kamis.getTime() + oneWeek*i);
+            db.addPuasa("Puasa Senin Kamis", time);
+        }
+    }
+
+    private void puasaSeninSaveToDatabase() {
+        for (int i=0; i<105; i++) {
+            long time = (senin.getTime() + oneWeek*i);
+            db.addPuasa("Puasa Senin Kamis", time);
+        }
+    }
+
+    private void puasaAyyamulBidhSaveToDatabase() {
+        ArrayList<Long> listPuasaAyyamulBidh = new ArrayList<>();
+        listPuasaAyyamulBidh.add(Long.valueOf(18270));
+        listPuasaAyyamulBidh.add(Long.valueOf(18299));
+        listPuasaAyyamulBidh.add(Long.valueOf(18329));
+        listPuasaAyyamulBidh.add(Long.valueOf(18359));
+        listPuasaAyyamulBidh.add(Long.valueOf(18418));
+        listPuasaAyyamulBidh.add(Long.valueOf(18448));
+        listPuasaAyyamulBidh.add(Long.valueOf(18478));
+        listPuasaAyyamulBidh.add(Long.valueOf(18506));
+        listPuasaAyyamulBidh.add(Long.valueOf(18536));
+        listPuasaAyyamulBidh.add(Long.valueOf(18565));
+        listPuasaAyyamulBidh.add(Long.valueOf(18595));
+        listPuasaAyyamulBidh.add(Long.valueOf(18624));
+
+        for (int i=0; i<listPuasaAyyamulBidh.size(); i++) {
+            // puasa ayyamul bidh biasanya berlangsung 3 hari
+            for (int j=0; j<3; j++) {
+                long time = (listPuasaAyyamulBidh.get(i)+j);
+                db.addPuasa("Puasa Ayyamul Bidh", time);
+            }
+        }
+    }
+
+    private boolean initializeCalendarData() {
+        SharedPreferences sharedPreferences =
+                getActivity().getSharedPreferences("DataUser", getActivity().MODE_PRIVATE);
+        if (!sharedPreferences.contains("userCalendar")) {
+            return false;
+        }
+        return true;
     }
 }
